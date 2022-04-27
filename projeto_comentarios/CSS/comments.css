@@ -34,13 +34,20 @@ li a:hover{
     text-decoration: underline;
 }
 /*------------conteudo1--------------*/
+@media (min-width:500px) {
+   section#conteudo1{
+    width: 60%;
+    box-sizing: border-box;
+    float: left;
+}
+section#conteudo1 img#jose{
+    width: 100%;
+    height: 400px;
+}
 h1{
     padding: 70px 0px 25px 0px;
     font-size: 27pt;
     line-height: 40pt;
-}
-section#conteudo1{
-    width: 60%;
 }
 p.text{
     font-size: 15pt;
@@ -118,4 +125,144 @@ padding: 10px;
 }
 .comment-area p{
     line-height: 25px;
+} 
 }
+@media (max-width:500px) {
+    section#conteudo1{
+        width: 100%;
+        box-sizing: border-box;
+        float: left;
+    }
+    h1{
+        padding: 70px 0px 25px 0px;
+        font-size: 27pt;
+        line-height: 40pt;
+    }
+    p.text{
+        font-size: 15pt;
+        line-height: 40px;
+        margin:20px 0px;
+        font-family: 'Microsoft Yahei Light';
+    }
+    /*--------formulario---------*/
+    form img{
+        width: 50px;
+        height: auto;
+        float: left;
+        margin: 9px;
+    }
+    textarea{
+        height: 100px;
+        width: 85%;
+        border: none;
+        padding: 7px;
+        margin: 9px;
+        font-size: 14pt;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color:rgb(32, 32, 32) ;
+        color: white;
+        outline: none;
+        display: block;
+        float: left;
+    }
+    h2{
+        font-family: 'Microsoft Yahei Light';
+        line-height: 80px;
+        margin-bottom: 10px;
+    }
+    input[type=submit]{
+        font-family: 'Arial Black', sans-serif;
+        width: 220px;
+        height: 52px;
+        background-color:rgb(32, 32, 32) ;
+        color: white;
+        border: 2px solid rgb(255, 255, 255);
+        cursor: pointer;
+        display: block;
+        float: right;
+    }
+    input[type=submit]:hover{
+        background-color:rgb(255, 255, 255) ;
+        color: rgb(32, 32, 32);
+        border: 2px solid rgb(32, 32, 32);
+    }
+    /*------areacon]metario--------------*/
+    .comment-area{
+    box-sizing: border-box;
+    border-bottom: 1px solid gray;
+    clear: both;
+    padding: 10px;
+    }
+    .comment-area img{
+        float: left;
+        width: 50px;
+        padding-right: 10px;
+    }
+    .comment-area h3{
+        float: left;
+        font-size: 12pt;
+        color: white;
+        padding: 5px 10px 5px 0px;
+    }
+    .comment-area h4{
+        font-size: 10pt;
+        color: white;
+        line-height: 30px;
+    }
+    .comment-area h4 a{
+        color: white;
+    }
+    .comment-area p{
+        line-height: 25px;
+    } 
+}
+
+/*--------------aside------------*/
+@media (max-width:500px){
+    section#conteudo2,section#conteudo3{
+       display: none;
+    }
+    section#conteudo2 div,section#conteudo3 div{
+        display: none;
+    }
+    section#conteudo2 img {
+        display: none;
+    }
+}
+@media (min-width:500px){
+section#conteudo2,section#conteudo3{
+    width: 40%;
+    box-sizing: border-box;
+    float: left;
+}
+section#conteudo2 div,section#conteudo3 div{
+    width: 70%;
+    background-color: rgb(12, 12, 12);
+    border: 1px solid black;
+    padding: 60px 20px;
+    margin: 50px auto 0px auto;
+    border-radius: 10px;
+}
+section#conteudo2 img {
+    width: 75%;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+
+}
+section#conteudo2 p, section#conteudo3 p{
+    width: 70%;
+    font-family: 'Microsoft Yahei Light';
+    text-align: center;
+    line-height: 20pt;
+    margin: 20px auto;
+}
+section#conteudo3 h5{
+    font-family: 'Microsoft Yahei Light';
+    text-align: center;
+    font-size: 16pt;
+}
+}
+
+
+

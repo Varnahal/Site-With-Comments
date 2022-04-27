@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10, minimum-scale=1.0">
     <link rel="stylesheet" href="CSS/comments.css">
     <title>Comentários</title>
 </head>
@@ -18,7 +18,7 @@
     <h1>Guia Definitivo Como Criar um Blog Incrível e Ganhar Dinheiro Com Ele</h1>
         <section id='conteudo1'>
             
-            <img src="imagens/jose.jpg" alt="José">
+            <img id='jose' src="imagens/jose.jpg" alt="José">
             <p class="text">É um fato há muito estabelecido que um leitor se distrairá com o conteúdo legível de uma página ao analisar seu layout. O ponto de usar o Lorem Ipsum é que ele tem uma distribuição de letras mais ou menos normal, em vez de usar 'Conteúdo aqui, conteúdo aqui'.</p>
             <p class="text">1. O ponto de usar o Lorem Ipsum</p>
             <p class="text">2. È que ele tem uma distribuição de letras</p>
@@ -53,6 +53,18 @@
                 <h3>Nome do ser vivo</h3>
                 <h4>hora e data <a href="">Excluir</a></h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quidem exercitationem dignissimos quaerat quibusdam, nihil deserunt. Ratione recusandae quas sapiente, repudiandae qui, eos nam optio enim reiciendis laboriosam id maiores?</p>
+            </div>
+        </section>
+        <section id='conteudo2'>
+            <div>
+            <img src="imagens/img-lateral.jpg" alt="">
+            <p>Analisar seu layout. O ponto de usar o Lorem Ipsum é que ele tem uma distribuição de letras mais ou menos normal, em vez de usar 'Conteúdo aqui, conteúdo aqui'.</p>
+            </div>
+        </section>
+        <section id='conteudo3'>
+            <div>
+                <h5>Saiba mais sobre como fazer</h5>
+                <p>Analisar seu layout. O ponto de usar o Lorem Ipsum é que ele tem uma distribuição de letras mais ou menos normal, em vez de usar 'Conteúdo aqui, conteúdo aqui'.</p>
             </div>
         </section>
         
