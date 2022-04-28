@@ -1,0 +1,111 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(../imagens/1151373.png);
+    background-repeat: no-repeat;
+    background-position: top;
+}
+@media (min-width:500px){
+    form{
+        width: 350px;
+        margin: 10px auto;
+        padding: 25px;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.451);
+        background-color: rgba(255, 255, 255, 0.547);
+        border-radius: 30px;
+        margin-top: 250px;
+    }
+    img{
+        width: 20px;
+        float: left;
+        margin-right: 10px;
+    }
+    input{
+        display: block;
+        float: left;
+        width: 87%;
+        height: 30px;
+        font-size: 11pt;
+        color: white;
+        padding: 5px;
+        margin-bottom: 5px;
+        outline: none;
+        border-radius: 50px;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    input[type='submit']{
+        margin-left: 35px;
+        
+    }
+    input:hover{
+        background-color: rgba(255, 255, 255, 0.608);
+        color: black;
+    }
+
+    h1{
+        padding: 10px;
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+        color: blue;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+}
+@media (max-width:500px){
+    form{
+        width: 300px;
+        margin: 10px auto;
+        padding: 25px;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.451);
+        background-color: rgba(255, 255, 255, 0.547);
+        border-radius: 30px;
+        margin-top: 250px;
+        height: 250px;
+    }
+    img{
+        width: 20px;
+        float: left;
+        margin-right: 10px;
+    }
+    input{
+        display: block;
+        float: left;
+        width: 87%;
+        height: 30px;
+        font-size: 11pt;
+        color: white;
+        padding: 5px;
+        margin-bottom: 5px;
+        outline: none;
+        border-radius: 50px;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    input[type='submit']{
+        margin-left: 5px;
+        margin-top: 10px;
+        
+    }
+    input:hover{
+        background-color: rgba(255, 255, 255, 0.608);
+        color: black;
+    }
+
+    h1{
+        padding: 10px;
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+        color: blue;
+        float: left;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+}

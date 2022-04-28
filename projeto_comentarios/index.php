@@ -11,7 +11,7 @@
     <nav>
         <ul>
             <li><a href="comments.php">Comentários</a></li>
-            <li><a href="">Entrar</a></li>
+            <li><a href="entrar.php">Entrar</a></li>
         </ul>
     </nav>
     <div><h3>Conteúdo <b>TOP</b></h3>
