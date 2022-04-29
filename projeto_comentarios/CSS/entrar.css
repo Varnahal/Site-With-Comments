@@ -8,6 +8,28 @@ body{
     background-repeat: no-repeat;
     background-position: top;
 }
+/*----------------MENU-----------------------*/
+nav{
+    background-color: rgb(32, 32, 32);
+    height: 60px;
+}
+ul{
+    list-style: none;
+    float: right;
+    margin-right: 20px;
+}
+li{
+    display: inline-flex;
+    line-height: 60px;
+    padding: 0px 10px;
+}
+li a{
+    text-decoration: none;
+    color: white;
+}
+li a:hover{
+    text-decoration: underline;
+}
 @media (min-width:500px){
     form{
         width: 350px;

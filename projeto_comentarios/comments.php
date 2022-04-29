@@ -8,9 +8,10 @@
     <title>Comentários</title>
 </head>
 <body>
-    <nav>
+<nav>
         <ul>
             <li><a href="index.php">Home</a></li>
+            <li><a href="Comments.php">Comentários</a></li>
             <li><a href="entrar.php">Entrar</a></li>
         </ul>
     </nav>

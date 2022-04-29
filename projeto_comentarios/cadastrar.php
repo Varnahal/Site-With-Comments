@@ -8,6 +8,13 @@
     <title>Cadastrar</title>
 </head>
 <body>
+<nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Comments.php">Comentários</a></li>
+            <li><a href="entrar.php">Entrar</a></li>
+        </ul>
+    </nav>
 <form action="" method="post">
         <h1>Cadastre-se</h1>
         <label for="nome">NOME</label>
