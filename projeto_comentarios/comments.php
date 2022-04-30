@@ -28,7 +28,7 @@
             <h2>Deixe seu comentário</h2>
             <form action="" method="post">
                 <img src="imagens/perfil.png" alt="imagemperfil">
-                <textarea name="text" id="text" cols="30" rows="10" placeholder="Digita algun bagui aí"></textarea>
+                <textarea name="text" id="text" cols="30" rows="10" maxlength="400" placeholder="Digita algun bagui aí"></textarea>
                 <input type="submit" value="Publicar">
             </form>
             <div class="comment-area">
