@@ -1,3 +1,13 @@
+<?php
+session_start();
+ob_start();
+
+if(!isset($_SESSION['id_master']))
+{
+    header('Location:index.php');
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,8 +21,23 @@
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
+            <?php
+            if(isset($_SESSION['id_master']))
+            {
+                echo'<li><a href="dados.php">Dados</a></li>';
+            }
+            ?>
             <li><a href="Comments.php">Comentários</a></li>
-            <li><a href="entrar.php">Entrar</a></li>
+            <?php
+            if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
+            {
+                echo'<li><a href="sair.php">Sair</a></li>';
+            }else
+            {
+                echo'<li><a href="entrar.php">Entrar</a></li>';
+            }
+            
+            ?>
         </ul>
     </nav>
     <table>

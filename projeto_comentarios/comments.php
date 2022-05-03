@@ -1,3 +1,8 @@
+<?php
+session_start();
+ob_start();
+require_once 'CLASSES/comentarios.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,8 +16,23 @@
 <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
+            <?php
+            if(isset($_SESSION['id_master']))
+            {
+                echo'<li><a href="dados.php">Dados</a></li>';
+            }
+            ?>
             <li><a href="Comments.php">Comentários</a></li>
-            <li><a href="entrar.php">Entrar</a></li>
+            <?php
+            if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
+            {
+                echo'<li><a href="sair.php">Sair</a></li>';
+            }else
+            {
+                echo'<li><a href="entrar.php">Entrar</a></li>';
+            }
+            
+            ?>
         </ul>
     </nav>
     <div id="largura">
@@ -31,30 +51,26 @@
                 <textarea name="text" id="text" cols="30" rows="10" maxlength="400" placeholder="Digita algun bagui aí"></textarea>
                 <input type="submit" value="Publicar">
             </form>
-            <div class="comment-area">
-                <img src="imagens/perfil.png" alt="">
-                <h3>Nome do ser vivo</h3>
-                <h4>hora e data <a href="">Excluir</a></h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quidem exercitationem dignissimos quaerat quibusdam, nihil deserunt. Ratione recusandae quas sapiente, repudiandae qui, eos nam optio enim reiciendis laboriosam id maiores?</p>
-            </div>
-            <div class="comment-area">
-                <img src="imagens/perfil.png" alt="">
-                <h3>Nome do ser vivo</h3>
-                <h4>hora e data <a href="">Excluir</a></h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quidem exercitationem dignissimos quaerat quibusdam, nihil deserunt. Ratione recusandae quas sapiente, repudiandae qui, eos nam optio enim reiciendis laboriosam id maiores?</p>
-            </div>
-            <div class="comment-area">
-                <img src="imagens/perfil.png" alt="">
-                <h3>Nome do ser vivo</h3>
-                <h4>hora e data <a href="">Excluir</a></h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quidem exercitationem dignissimos quaerat quibusdam, nihil deserunt. Ratione recusandae quas sapiente, repudiandae qui, eos nam optio enim reiciendis laboriosam id maiores?</p>
-            </div>
-            <div class="comment-area">
-                <img src="imagens/perfil.png" alt="">
-                <h3>Nome do ser vivo</h3>
-                <h4>hora e data <a href="">Excluir</a></h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quidem exercitationem dignissimos quaerat quibusdam, nihil deserunt. Ratione recusandae quas sapiente, repudiandae qui, eos nam optio enim reiciendis laboriosam id maiores?</p>
-            </div>
+            <?php
+                $p = new comentarios('varnahal','localhost','root','');
+                $dados = $p->buscarComentarios();
+                //var_dump($dados);
+                if(count($dados)>0){
+                    foreach ($dados as $v) {
+                        $data = new DateTime($v['dia']);
+                      echo"<div class='comment-area'>
+                            <img src='imagens/perfil.png' alt=''>
+                            <h3>{$v['nome']}</h3>
+                            <h4>{$v['horario']} {$data->format('d/m/Y')}&nbsp;<a href=''>Excluir</a></h4>
+                            <p>{$v['comentario']}</p>
+                            </div> ";
+                    }
+                }else
+                {
+                    echo'tem nada nn rala!';
+                }
+            ?>
+            
         </section>
         <section id='conteudo2'>
             <div>

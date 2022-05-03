@@ -3,6 +3,20 @@ session_start();
 ob_start();
 
 ?>
+    <?php
+        if(isset($_SESSION['id_user']))
+        {
+            require_once 'CLASSES/usuarios.php';
+            $p = new usuario('varnahal','localhost','root','');
+            $dados = $p->buscardados($_SESSION['id_user']);
+        }elseif(isset($_SESSION['id_master']))
+        {
+            require_once 'CLASSES/usuarios.php';
+            $p = new usuario('varnahal','localhost','root','');
+            $dados = $p->buscardados($_SESSION['id_master']);
+        }
+        
+    ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,10 +30,38 @@ ob_start();
 <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
+            <?php
+            if(isset($_SESSION['id_master']))
+            {
+                echo'<li><a href="dados.php">Dados</a></li>';
+            }
+            ?>
             <li><a href="Comments.php">Comentários</a></li>
-            <li><a href="entrar.php">Entrar</a></li>
+            <?php
+            if(isset($dados))
+            {
+                echo'<li><a href="sair.php">Sair</a></li>';
+            }else
+            {
+                echo'<li><a href="entrar.php">Entrar</a></li>';
+            }
+            
+            ?>
+            
         </ul>
     </nav>
+        <?php
+        if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
+        {   
+            echo "<h2>";
+            echo "Salve ";
+            echo $dados['nome'];
+            echo "</h2>";
+
+        }
+        
+
+        ?>
     <div><h3>Conteúdo <b>TOP</b></h3>
 </div>
     

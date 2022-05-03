@@ -103,6 +103,7 @@ box-sizing: border-box;
 border-bottom: 1px solid gray;
 clear: both;
 padding: 10px;
+word-break: break-word;
 }
 .comment-area img{
     float: left;
@@ -192,6 +193,7 @@ padding: 10px;
     border-bottom: 1px solid gray;
     clear: both;
     padding: 10px;
+    word-break: break-word;
     }
     .comment-area img{
         float: left;

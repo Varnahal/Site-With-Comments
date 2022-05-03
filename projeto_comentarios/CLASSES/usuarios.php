@@ -4,10 +4,12 @@ class usuario{
     private $pdo;
     public function __construct($dbname,$host,$user,$pass) 
     {
+        $opcoes = array(
+            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8');
         
         try 
         {
-            $this->pdo = new PDO("mysql:dbname=$dbname;host=$host",$user,$pass);
+            $this->pdo = new PDO("mysql:dbname=$dbname;host=$host;charset=utf8",$user,$pass,$opcoes);
         } catch (Exception $e) {
             echo"Erro por favor tente novamente. Erro:$e";
         }catch (PDOException $e) {
@@ -76,6 +78,14 @@ class usuario{
         }
 
         
+    }
+    public function buscardados($id)
+    {
+       $cmd = $this->pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
+       $cmd->bindValue(":id",$id);
+       $cmd->execute();
+       $dados = $cmd->fetch(PDO::FETCH_ASSOC);
+       return $dados;
     }
 
 }

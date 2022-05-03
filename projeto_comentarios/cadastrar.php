@@ -17,7 +17,16 @@ ob_start();
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="Comments.php">Comentários</a></li>
-            <li><a href="entrar.php">Entrar</a></li>
+            <?php
+            if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
+            {
+                echo'<li><a href="sair.php">Sair</a></li>';
+            }else
+            {
+                echo'<li><a href="entrar.php">Entrar</a></li>';
+            }
+            
+            ?>
         </ul>
     </nav>
     <?php 
