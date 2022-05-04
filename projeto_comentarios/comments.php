@@ -61,14 +61,14 @@ require_once 'CLASSES/comentarios.php';
                         $data = new DateTime($v['dia']);
                         if(isset($_SESSION['id_master']))
                         {
-                            $p = "<a href=''>Excluir</a>"; 
+                            $p = "<a href='excluir.php?id=".$v['id']."'>Excluir</a>"; 
                         }else
                         {
                             if(!isset($_SESSION['id_master']) && isset($_SESSION['id_user']))
                             {
                                 if($v['fk_id_usuraio'] == $_SESSION['id_user'])
                                 {
-                                   $p = "<a href=''>Excluir</a>"; 
+                                   $p = "<a href='excluir.php?id=".$v['id']."'>Excluir</a>"; 
                                 }
                                 else
                                 {
@@ -112,3 +112,6 @@ require_once 'CLASSES/comentarios.php';
     </div>
 </body>
 </html>
+<?php
+
+?>
