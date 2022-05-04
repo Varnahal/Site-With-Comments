@@ -12,8 +12,8 @@ ob_start();
     <title>Cadastrar</title>
 </head>
 <body>
-
-<nav>
+<header>
+    <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="Comments.php">Comentários</a></li>
@@ -29,6 +29,8 @@ ob_start();
             ?>
         </ul>
     </nav>
+</header>
+
     <?php 
 
     $data = filter_input_array(INPUT_POST);

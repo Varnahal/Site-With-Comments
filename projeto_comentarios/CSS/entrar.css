@@ -9,6 +9,10 @@ body{
     background-position: top;
 }
 /*----------------MENU-----------------------*/
+header{
+    position: static;
+    width: 100vw;
+}
 nav{
     background-color: rgb(32, 32, 32);
     height: 60px;

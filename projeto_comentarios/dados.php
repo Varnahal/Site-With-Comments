@@ -41,24 +41,35 @@ if(!isset($_SESSION['id_master']))
         </ul>
     </nav>
     <table>
+        
         <tr id="titulo">
             <td>ID</td>
             <td>NOME</td>
             <td>EMAIL</td>
             <td>COMENTÁRIOS</td>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Daniel</td>
-            <td>danielmarcelino91@gmail.com</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Daniel</td>
-            <td>danielmarceliqweqrqreqwrerno91@gmail.com</td>
-            <td>2</td>
-        </tr>
+        <?php 
+        require_once 'CLASSES/usuarios.php';
+
+            $p = new usuario('varnahal','localhost','root','');
+            $dados = $p->buscarusuarios();
+            //var_dump($dados);
+            if(count($dados)> 0)
+            {
+                foreach ($dados as $v) {
+                    echo"<tr>";
+                    echo "<td>".$v['id']."</td>";
+                    echo "<td>".$v['nome']."</td>";
+                    echo "<td>".$v['email']."</td>";
+                    echo "<td>".$v['quantidade']."</td>";
+                    echo"</tr>";
+
+                }
+            }else
+            echo"<h1>Sem dados por aqui</h1>";
+                
+
+        ?>
     </table>
 </body>
 </html>

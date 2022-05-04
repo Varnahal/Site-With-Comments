@@ -1,6 +1,10 @@
 <?php 
 session_start();
 ob_start();
+if(isset($_POST['logar_texto']))
+{
+    $_SESSION['msg'] = "Faça login para comentar";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +17,8 @@ ob_start();
     <title>Entrar</title>
 </head>
 <body>
-    <nav>
+    <header>
+           <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="Comments.php">Comentários</a></li>
@@ -28,7 +33,9 @@ ob_start();
             
             ?>
         </ul>
-    </nav>
+    </nav> 
+    </header>
+
     <?php
     $data = filter_input_array(INPUT_POST);
     if(isset($data['btn_entrar']))
@@ -69,7 +76,7 @@ ob_start();
         ?>
         <h1>Acessar</h1>
         <img src="imagens/envelope.png" alt="email">
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" autocomplete="email">
         <img src="imagens/cadeado.png" alt="senha">
         <input type="password" name="senha" id="senha">
         <input type="submit" value="Entrar" name="btn_entrar">

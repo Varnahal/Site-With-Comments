@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('America/Sao_Paulo');
 class comentarios{
     private $pdo;
     public function __construct($dbname,$host,$user,$pass) 
@@ -38,6 +38,15 @@ class comentarios{
             $cmd->execute();
         }
         
+    }
+    public function publicar($id,$com)
+    {
+        $cmd = $this->pdo->prepare("INSERT INTO comentarios(comentario, dia, horario, fk_id_usuraio) VALUES (:c,:d,:h,:fk)");
+        $cmd->bindValue(":c",$com);
+        $cmd->bindValue(":d",date('Y-m-d'));
+        $cmd->bindValue(":h",date('H:i'));
+        $cmd->bindValue(":fk",$id);
+        $cmd->execute();
     }
 }
 

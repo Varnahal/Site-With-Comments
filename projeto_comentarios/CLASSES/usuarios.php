@@ -87,6 +87,13 @@ class usuario{
        $dados = $cmd->fetch(PDO::FETCH_ASSOC);
        return $dados;
     }
+    public function buscarusuarios()
+    {
+        $cmd = $this->pdo->prepare("SELECT a.id,a.nome,a.email,COUNT(b.id) as 'quantidade' FROM usuarios a LEFT JOIN comentarios b ON a.id = b.fk_id_usuraio GROUP BY a.id");
+        $cmd->execute();
+        $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
+        return $dados;
+    }
 
 }
 

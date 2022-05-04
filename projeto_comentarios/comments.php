@@ -13,7 +13,8 @@ require_once 'CLASSES/comentarios.php';
     <title>Comentários</title>
 </head>
 <body>
-<nav>
+    <header>
+        <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
             <?php
@@ -35,6 +36,8 @@ require_once 'CLASSES/comentarios.php';
             ?>
         </ul>
     </nav>
+    </header>
+
     <div id="largura">
     <h1>Guia Definitivo Como Criar um Blog Incrível e Ganhar Dinheiro Com Ele</h1>
         <section id='conteudo1'>
@@ -46,12 +49,34 @@ require_once 'CLASSES/comentarios.php';
             <p class="text">3. Lorem Ipsum é que ele tem uma distribuição</p>
             <p class="text">4. letras mais ou menos normal</p>
             <h2>Deixe seu comentário</h2>
-            <form action="" method="post">
+            
+                <?php
+                if(isset($_SESSION['id_master']) || isset($_SESSION['id_user']))
+                {
+                   echo '<form action="publicar.php" method="post">
                 <img src="imagens/perfil.png" alt="imagemperfil">
-                <textarea name="text" id="text" cols="30" rows="10" maxlength="400" placeholder="Digita algun bagui aí"></textarea>
-                <input type="submit" value="Publicar">
+                <textarea name="text" id="text" cols="30" rows="10" maxlength="400" placeholder="Digita algun bagui aí"></textarea>';
+                    echo '<input type="submit" value="Publicar" name = "enviar_texto">';
+                }
+                else
+                {
+                    
+                    echo '<form action="entrar.php" method="post">
+                <img src="imagens/perfil.png" alt="imagemperfil">
+                <textarea name="text" id="text" cols="30" rows="10" maxlength="400" placeholder="Logar antes de comentar"></textarea>';
+                    echo '<input type="submit" value="Logar para comentar" name = "logar_texto">';
+                }
+                
+                ?>
+                
             </form>
             <?php
+            if(isset($_SESSION['e-msg']))
+            {   echo"<p id='erro'>"; 
+                echo $_SESSION['e-msg'];
+                unset($_SESSION['e-msg']);
+                echo"</p>";
+            }
             
                 $p = new comentarios('varnahal','localhost','root','');
                 $dados = $p->buscarComentarios();
@@ -112,6 +137,3 @@ require_once 'CLASSES/comentarios.php';
     </div>
 </body>
 </html>
-<?php
-
-?>

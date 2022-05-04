@@ -27,7 +27,8 @@ ob_start();
     <title>Sistema de comentarios</title>
 </head>
 <body>
-<nav>
+    <header>
+        <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
             <?php
@@ -50,6 +51,8 @@ ob_start();
             
         </ul>
     </nav>
+    </header>
+
         <?php
         if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
         {   

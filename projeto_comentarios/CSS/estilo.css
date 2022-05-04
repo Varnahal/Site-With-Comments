@@ -14,6 +14,10 @@ h3{
     margin-top: 50px;
 }
 /*----------------MENU-----------------------*/
+header{
+    position: static;
+    width: 100vw;
+}
 nav{
     background-color: rgb(32, 32, 32);
     height: 60px;
