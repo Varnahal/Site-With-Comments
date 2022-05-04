@@ -52,16 +52,40 @@ require_once 'CLASSES/comentarios.php';
                 <input type="submit" value="Publicar">
             </form>
             <?php
+            
                 $p = new comentarios('varnahal','localhost','root','');
                 $dados = $p->buscarComentarios();
                 //var_dump($dados);
                 if(count($dados)>0){
                     foreach ($dados as $v) {
                         $data = new DateTime($v['dia']);
+                        if(isset($_SESSION['id_master']))
+                        {
+                            $p = "<a href=''>Excluir</a>"; 
+                        }else
+                        {
+                            if(!isset($_SESSION['id_master']) && isset($_SESSION['id_user']))
+                            {
+                                if($v['fk_id_usuraio'] == $_SESSION['id_user'])
+                                {
+                                   $p = "<a href=''>Excluir</a>"; 
+                                }
+                                else
+                                {
+                                    $p = "";
+
+                                }
+                            
+                            }else
+                            {
+                                $p = "";
+                            }
+                        }
+                        
                       echo"<div class='comment-area'>
                             <img src='imagens/perfil.png' alt=''>
                             <h3>{$v['nome']}</h3>
-                            <h4>{$v['horario']} {$data->format('d/m/Y')}&nbsp;<a href=''>Excluir</a></h4>
+                            <h4>{$v['horario']} {$data->format('d/m/Y')}&nbsp;".$p."</h4>
                             <p>{$v['comentario']}</p>
                             </div> ";
                     }
