@@ -10,6 +10,8 @@ require_once 'CLASSES/comentarios.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10, minimum-scale=1.0">
     <link rel="stylesheet" href="CSS/comments.css">
+    <link rel="shortcut icon" href="imagens/jose.ico" type="image/x-icon">
+
     <title>Comentários</title>
 </head>
 <body>

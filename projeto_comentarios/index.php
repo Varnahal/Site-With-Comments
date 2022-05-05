@@ -24,6 +24,7 @@ ob_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/estilo.css">
+    <link rel="shortcut icon" href="imagens/jose.ico" type="image/x-icon">
     <title>Sistema de comentarios</title>
 </head>
 <body>
