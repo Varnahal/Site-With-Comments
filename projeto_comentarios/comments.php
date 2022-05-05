@@ -137,5 +137,8 @@ require_once 'CLASSES/comentarios.php';
         </section>
         
     </div>
+    <footer>  
+    <div><a href="https://www.instagram.com/varnahal0712/">Instagram</a> | <a href="https://www.facebook.com/daniel.marcelinodelima.79">Facebook</a></div>
+    </footer>
 </body>
 </html>

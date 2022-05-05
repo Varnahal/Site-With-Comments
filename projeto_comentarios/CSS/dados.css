@@ -59,3 +59,20 @@ td{
     max-width: 1px;
     text-align: center;
 }
+footer{
+    position: fixed;
+    text-align: center;
+    color: white;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgb(32, 32, 32);
+    height: 40px;
+    padding: 1rem;
+    font-size: 30px;
+}
+footer a{
+    text-decoration: none;
+    float: none;
+    color: aliceblue;
+}

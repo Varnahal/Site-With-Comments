@@ -84,5 +84,8 @@ if(isset($_POST['logar_texto']))
         <input type="submit" value="Entrar" name="btn_entrar">
         <a href="cadastrar.php">Não é cadastrado?Registre-se agora</a>
     </form>
+    <footer>  
+    <div><a href="https://www.instagram.com/varnahal0712/">Instagram</a> | <a href="https://www.facebook.com/daniel.marcelinodelima.79">Facebook</a></div>
+    </footer>
 </body>
 </html>

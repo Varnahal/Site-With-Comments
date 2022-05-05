@@ -66,8 +66,12 @@ ob_start();
         
 
         ?>
-    <div><h3>Conteúdo <b>TOP</b></h3>
+    <div id="conteudo">
+        <h3>Varnahal</h3>
+        <p>Parabéns você chegou ao meu site, fique a vontade para comentar na ala <a href="comentarios.php ">comentários</a>, mas para isso terá que estar logado primeiro <a href="entar.php">Clique aqui</a> para logar ou Clique na barra superior em Entrar</p>
 </div>
-    
+    <footer>  
+    <div><a href="https://www.instagram.com/varnahal0712/">Instagram</a> | <a href="https://www.facebook.com/daniel.marcelinodelima.79">Facebook</a></div>
+    </footer>
 </body>
 </html>

@@ -43,6 +43,8 @@ li a:hover{
     width: 60%;
     box-sizing: border-box;
     float: left;
+    margin-bottom: 80px;
+
 }
 section#conteudo1 img#jose{
     width: 100%;
@@ -131,12 +133,35 @@ word-break: break-word;
 .comment-area p{
     line-height: 25px;
 } 
+footer{
+    position: fixed;
+    text-align: center;
+    color: white;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgb(32, 32, 32);
+    height: 40px;
+    padding: 1rem;
+    font-size: 30px;
+    width: 100vw;
+}
+footer a{
+    text-decoration: none;
+    float: none;
+    color: aliceblue;
+}
 }
 @media (max-width:500px) {
     section#conteudo1{
         width: 100%;
         box-sizing: border-box;
         float: left;
+        margin-bottom: 80px;
+    }
+    section#conteudo1 img#jose{
+        width: 100%;
+        height: 400px;
     }
     h1{
         padding: 70px 0px 25px 0px;
@@ -221,6 +246,25 @@ word-break: break-word;
     .comment-area p{
         line-height: 25px;
     } 
+    footer{
+        position: fixed;
+        text-align: center;
+        color: white;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: rgb(32, 32, 32);
+        height: 40px;
+        padding: 1rem;
+        font-size: 30px;
+        width: 100vw;
+
+    }
+    footer a{
+        text-decoration: none;
+        float: none;
+        color: aliceblue;
+    }
 }
 
 /*--------------aside------------*/
