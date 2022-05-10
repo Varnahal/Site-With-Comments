@@ -42,6 +42,7 @@ ob_start();
             <?php
             if(isset($dados))
             {
+                echo'<li><a href="Perfil.php">Perfil</a></li>';
                 echo'<li><a href="sair.php">Sair</a></li>';
             }else
             {

@@ -33,6 +33,7 @@ if(!isset($_SESSION['id_master']))
             <?php
             if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
             {
+                echo'<li><a href="Perfil.php">Perfil</a></li>';
                 echo'<li><a href="sair.php">Sair</a></li>';
             }else
             {

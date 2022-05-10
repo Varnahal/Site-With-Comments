@@ -3,6 +3,20 @@ session_start();
 ob_start();
 require_once 'CLASSES/comentarios.php';
 ?>
+<?php
+        if(isset($_SESSION['id_user']))
+        {
+            require_once 'CLASSES/usuarios.php';
+            $p = new usuario('varnahal','localhost','root','');
+            $dados_user = $p->buscardados($_SESSION['id_user']);
+        }elseif(isset($_SESSION['id_master']))
+        {
+            require_once 'CLASSES/usuarios.php';
+            $p = new usuario('varnahal','localhost','root','');
+            $dados_user = $p->buscardados($_SESSION['id_master']);
+        }
+        
+    ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,6 +43,7 @@ require_once 'CLASSES/comentarios.php';
             <?php
             if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
             {
+                echo'<li><a href="Perfil.php">Perfil</a></li>';
                 echo'<li><a href="sair.php">Sair</a></li>';
             }else
             {
@@ -56,7 +71,7 @@ require_once 'CLASSES/comentarios.php';
                 if(isset($_SESSION['id_master']) || isset($_SESSION['id_user']))
                 {
                    echo '<form action="publicar.php" method="post">
-                <img src="imagens/perfil.png" alt="imagemperfil">
+                <img src="imagens/'.$dados_user['foto'].'" alt="imagemperfil">
                 <textarea name="text" id="text" cols="30" rows="10" maxlength="400" placeholder="Digita algun bagui aí"></textarea>';
                     echo '<input type="submit" value="Publicar" name = "enviar_texto">';
                 }
@@ -110,7 +125,7 @@ require_once 'CLASSES/comentarios.php';
                         }
                         
                       echo"<div class='comment-area'>
-                            <img src='imagens/perfil.png' alt=''>
+                            <img src='imagens/{$v['foto']}' alt=''>
                             <h3>{$v['nome']}</h3>
                             <h4>{$v['horario']} {$data->format('d/m/Y')}&nbsp;".$p."</h4>
                             <p>{$v['comentario']}</p>

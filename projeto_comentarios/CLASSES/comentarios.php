@@ -18,7 +18,7 @@ class comentarios{
     }
     public function buscarComentarios()
     {
-        $cmd = $this->pdo->prepare("SELECT a.id,a.comentario,a.dia,a.horario,a.fk_id_usuraio,b.nome FROM comentarios a INNER JOIN usuarios b ON a.fk_id_usuraio = b.id ORDER BY a.id DESC");
+        $cmd = $this->pdo->prepare("SELECT a.id,a.comentario,a.dia,a.horario,a.fk_id_usuraio,b.nome,b.foto FROM comentarios a INNER JOIN usuarios b ON a.fk_id_usuraio = b.id ORDER BY a.id DESC");
         $cmd->execute();
         $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
         return $dados;

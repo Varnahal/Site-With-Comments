@@ -18,16 +18,18 @@ class usuario{
     }
     public function cadastrar($n,$e,$s)
     {   
+        $foto = 'imagens/perfil.png';
         $j = password_hash($s,PASSWORD_DEFAULT);
         $cmd = $this->pdo->prepare("SELECT id FROM varnahal.usuarios WHERE email = :e");
         $cmd->bindValue(":e",$e);
         $cmd->execute();
         if($cmd->rowCount()==0)
         {
-        $cmd = $this->pdo->prepare("INSERT INTO varnahal.usuarios values(default,:n,:e,:s)");
+        $cmd = $this->pdo->prepare("INSERT INTO varnahal.usuarios values(default,:n,:e,:s,:f)");
         $cmd->bindValue(":n",$n);
         $cmd->bindValue(":e",$e);
         $cmd->bindValue(":s",$j);
+        $cmd->bindValue(":f",$foto);
         $cmd->execute();
         return true;
         }else
@@ -94,7 +96,49 @@ class usuario{
         $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
         return $dados;
     }
-
+    public function MudarInfoNome($id,$nome)
+    {
+        $cmd = $this->pdo->prepare("UPDATE usuarios
+        SET nome = :n
+        WHERE id = :id");
+        $cmd->bindValue(":n",$nome);
+        $cmd->bindValue(":id",$id);
+        $cmd->execute();
+        if($cmd->rowCount()>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function MudarInfoSenha($id,$senha)
+    {   
+        $j = password_hash($senha,PASSWORD_DEFAULT);
+        $cmd = $this->pdo->prepare("UPDATE usuarios
+        SET senha = :s
+        WHERE id = :id");
+        $cmd->bindValue(":s",$j);
+        $cmd->bindValue(":id",$id);
+        $cmd->execute();
+        if($cmd->rowCount()>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function MudarInfoFoto($id,$foto)
+    {   
+        $cmd = $this->pdo->prepare("UPDATE usuarios
+        SET foto = :f
+        WHERE id = :id");
+        $cmd->bindValue(":f",$foto);
+        $cmd->bindValue(":id",$id);
+        $cmd->execute();
+        if($cmd->rowCount()>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 
 ?>

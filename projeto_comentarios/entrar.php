@@ -27,6 +27,7 @@ if(isset($_POST['logar_texto']))
             <?php
             if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
             {
+                echo'<li><a href="Perfil.php">Perfil</a></li>';
                 echo'<li><a href="sair.php">Sair</a></li>';
             }else
             {
