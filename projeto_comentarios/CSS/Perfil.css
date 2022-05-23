@@ -48,10 +48,11 @@ li a:hover{
     text-decoration: underline;
 }
 /*--------------conteudo do site------------------*/
-@media (min-width:500px) {
+@media (min-width:894px) {
     section{
-      width: 50%;  
-      margin: auto;
+          width: 90%;
+    margin: auto;
+    max-width: 814px;
     }
     form{
         width: 350px;
@@ -90,6 +91,7 @@ li a:hover{
     }
     img{
         width: 100px;
+        height:100px;
         float: left;
         margin-right: 10px;
     }
@@ -143,40 +145,46 @@ li a:hover{
         padding: 1rem;
         font-size: 30px;
     }
+    .disclaimer{
+    display:none;
 }
-@media (max-width:500px) {
+}
+@media (max-width: 894px) {
     section{
-        width: 50%;  
+           width: 90%;
+               max-width: 400px;
+            margin: 0px auto;  
       }
     div#antigo{
-        width: 300px;
-        margin: 10px auto;
-        padding: 25px;
-        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.451);
-        background-color: rgba(255, 255, 255, 0.547);
-        border-radius: 30px;
-        margin-top: 90px;
-        float: left;
+        max-width:340px;
+        margin: 10px 20px;
+    padding: 25px;
+    box-shadow: 1px 1px 10px rgb(0 0 0 / 45%);
+    background-color: rgba(255, 255, 255, 0.547);
+    border-radius: 30px;
+    margin-top: 90px;
+    float: left;
     }
     h1#an{
         float: left;
     }
     img{
         width: 100px;
+        height:100px;
         float: left;
         margin-right: 10px;
     }
     form{
-        width: 300px;
-        margin: 10px auto;
-        padding: 25px;
-        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.451);
-        background-color: rgba(255, 255, 255, 0.547);
-        border-radius: 30px;
-        margin-top: 60px;
-        margin-bottom: 90px;
-        height: 400px;
-        float: left;
+            /* width: 90%; */
+    margin: 10px 20px;
+    padding: 25px;
+    box-shadow: 1px 1px 10px rgb(0 0 0 / 45%);
+    background-color: rgba(255, 255, 255, 0.547);
+    border-radius: 30px;
+    margin-top: 60px;
+    margin-bottom: 90px;
+    height: 400px;
+    float: left;
     }
     form p#n{
         padding: 5px;
@@ -250,4 +258,7 @@ li a:hover{
         float: none;
         color: aliceblue;
     }
+    .disclaimer{
+    display:none;
+}
 }

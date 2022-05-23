@@ -12,8 +12,8 @@ if(isset($_POST['logar_texto']))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/entrar.css">
-    <link rel="shortcut icon" href="imagens/jose.ico" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/entrar.css">
+        <link rel="shortcut icon" href="imagens/jose.ico" type="image/x-icon">
 
 
     <title>Entrar</title>
@@ -66,6 +66,7 @@ if(isset($_POST['logar_texto']))
     }
     
     ?>
+    <div id='aaa'>
     <form action="" method="post">
     <?php
         if(isset($_SESSION['msg'])){
@@ -85,8 +86,9 @@ if(isset($_POST['logar_texto']))
         <input type="submit" value="Entrar" name="btn_entrar">
         <a href="cadastrar.php">Não é cadastrado?Registre-se agora</a>
     </form>
+</div>    
     <footer>  
-    <div><a href="https://www.instagram.com/varnahal0712/">Instagram</a> | <a href="https://www.facebook.com/daniel.marcelinodelima.79">Facebook</a></div>
+    <div><a href="https://www.instagram.com/varnahal0712/">Instagram</a> | <a href="https://github.com/varnahal">Github</a></div>
     </footer>
 </body>
 </html>

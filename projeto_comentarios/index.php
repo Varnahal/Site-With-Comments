@@ -24,8 +24,9 @@ ob_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/estilo.css">
-    <link rel="shortcut icon" href="imagens/jose.ico" type="image/x-icon">
-    <title>Sistema de comentarios</title>
+        <link rel="shortcut icon" href="imagens/jose.ico" type="image/x-icon">
+
+    <title>Varnahal</title>
 </head>
 <body>
     <header>
@@ -67,12 +68,14 @@ ob_start();
         
 
         ?>
-    <div id="conteudo">
+        <div id="conteudo">
         <h3>Varnahal</h3>
-        <p>Parabéns você chegou ao meu site, fique a vontade para comentar na ala <a href="comentarios.php ">comentários</a>, mas para isso terá que estar logado primeiro <a href="entar.php">Clique aqui</a> para logar ou Clique na barra superior em Entrar</p>
+        <p>Parabéns você chegou ao meu site, fique a vontade para comentar na ala <a href="Comments.php ">comentários</a>, mas para isso terá que estar logado primeiro <a href="entrar.php">Clique aqui</a> para logar ou Clique na barra superior em Entrar</p>
 </div>
     <footer>  
-    <div><a href="https://www.instagram.com/varnahal0712/">Instagram</a> | <a href="https://www.facebook.com/daniel.marcelinodelima.79">Facebook</a></div>
+    <div><a href="https://www.instagram.com/varnahal0712/">Instagram</a> | <a href="https://github.com/varnahal">Github</a></div>
     </footer>
+</body>
+</html>
 </body>
 </html>

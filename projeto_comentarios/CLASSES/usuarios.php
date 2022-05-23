@@ -18,18 +18,16 @@ class usuario{
     }
     public function cadastrar($n,$e,$s)
     {   
-        $foto = 'imagens/perfil.png';
         $j = password_hash($s,PASSWORD_DEFAULT);
-        $cmd = $this->pdo->prepare("SELECT id FROM varnahal.usuarios WHERE email = :e");
+        $cmd = $this->pdo->prepare("SELECT id FROM usuarios WHERE email = :e");
         $cmd->bindValue(":e",$e);
         $cmd->execute();
         if($cmd->rowCount()==0)
         {
-        $cmd = $this->pdo->prepare("INSERT INTO varnahal.usuarios values(default,:n,:e,:s,:f)");
+        $cmd = $this->pdo->prepare("INSERT INTO usuarios values(default,:n,:e,:s,'perfil.png')");
         $cmd->bindValue(":n",$n);
         $cmd->bindValue(":e",$e);
         $cmd->bindValue(":s",$j);
-        $cmd->bindValue(":f",$foto);
         $cmd->execute();
         return true;
         }else
@@ -39,14 +37,14 @@ class usuario{
     }
     public function entrar($e,$s)
     {   
-        $cmd = $this->pdo->prepare("SELECT * FROM varnahal.usuarios WHERE email=:e");
+        $cmd = $this->pdo->prepare("SELECT * FROM usuarios WHERE email=:e");
         $cmd->bindValue(":e",$e);
         $cmd->execute();
         $j = $cmd->fetch();
         if($cmd->rowCount()>0){
             if(password_verify($s,$j['senha']))
             {
-                $cmd = $this->pdo->prepare("SELECT * FROM varnahal.usuarios WHERE senha=:s AND email=:e");
+                $cmd = $this->pdo->prepare("SELECT * FROM usuarios WHERE senha=:s AND email=:e");
                 $cmd->bindValue(":e",$e);
                 $cmd->bindValue(":s",$j['senha']);
                 $cmd->execute();
@@ -96,7 +94,8 @@ class usuario{
         $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
         return $dados;
     }
-    public function MudarInfoNome($id,$nome)
+    
+        public function MudarInfoNome($id,$nome)
     {
         $cmd = $this->pdo->prepare("UPDATE usuarios
         SET nome = :n

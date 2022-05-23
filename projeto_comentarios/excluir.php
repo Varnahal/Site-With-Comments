@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
     {
         $p->excluir($id_com,$_SESSION['id_master']); 
     }
-    header("Location:comments.php");
+    header("Location:Comments.php");
 }
 
 ?>

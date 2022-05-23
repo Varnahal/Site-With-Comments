@@ -72,7 +72,11 @@ footer{
     font-size: 30px;
 }
 footer a{
-    text-decoration: none;
-    float: none;
-    color: aliceblue;
+        text-decoration: none;
+        float: none;
+        color: aliceblue;
+    }
+.disclaimer
+{
+    display:none;
 }

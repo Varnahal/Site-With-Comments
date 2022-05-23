@@ -11,14 +11,16 @@ if(isset($_POST['enviar_texto']))
         if(isset($_SESSION['id_user']))
         {
             $p->publicar($_SESSION['id_user'],$com);
-            header("Location:comments.php");
+            header("Location:Comments.php");
 
         }
         elseif (isset($_SESSION['id_master'])) 
         {
             $p->publicar($_SESSION['id_master'],$com);
-            header("Location:comments.php");
+            header("Location:Comments.php");
         }
+    }else{
+        header("Location:Comments.php");
     }
 }
 ?>

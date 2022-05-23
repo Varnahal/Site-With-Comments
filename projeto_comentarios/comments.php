@@ -56,11 +56,11 @@ require_once 'CLASSES/comentarios.php';
     </header>
 
     <div id="largura">
-    <h1>Guia Definitivo Como Criar um Blog Incrível e Ganhar Dinheiro Com Ele</h1>
+    <h1>Uma foto do José, é somente uma foto do josé aceite</h1>
         <section id='conteudo1'>
             
             <img id='jose' src="imagens/jose.jpg" alt="José">
-            <p class="text">É um fato há muito estabelecido que um leitor se distrairá com o conteúdo legível de uma página ao analisar seu layout. O ponto de usar o Lorem Ipsum é que ele tem uma distribuição de letras mais ou menos normal, em vez de usar 'Conteúdo aqui, conteúdo aqui'.</p>
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusantium voluptatibus deleniti quasi. Eligendi recusandae fugiat deserunt quaerat, quis iusto voluptates commodi assumenda necessitatibus, odio, incidunt laborum. Soluta, minima ullam..</p>
             <p class="text">1. O ponto de usar o Lorem Ipsum</p>
             <p class="text">2. È que ele tem uma distribuição de letras</p>
             <p class="text">3. Lorem Ipsum é que ele tem uma distribuição</p>
@@ -140,20 +140,20 @@ require_once 'CLASSES/comentarios.php';
         </section>
         <section id='conteudo2'>
             <div>
-            <img src="imagens/img-lateral.jpg" alt="">
-            <p>Analisar seu layout. O ponto de usar o Lorem Ipsum é que ele tem uma distribuição de letras mais ou menos normal, em vez de usar 'Conteúdo aqui, conteúdo aqui'.</p>
+            <img src='imagens/{$v['foto']}' alt=''>
+            <p>Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui.</p>
             </div>
         </section>
         <section id='conteudo3'>
             <div>
-                <h5>Saiba mais sobre como fazer</h5>
-                <p>Analisar seu layout. O ponto de usar o Lorem Ipsum é que ele tem uma distribuição de letras mais ou menos normal, em vez de usar 'Conteúdo aqui, conteúdo aqui'.</p>
+                <h5>Anuncie-Aqui</h5>
+                <p>Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui.</p>
             </div>
         </section>
         
     </div>
     <footer>  
-    <div><a href="https://www.instagram.com/varnahal0712/">Instagram</a> | <a href="https://www.facebook.com/daniel.marcelinodelima.79">Facebook</a></div>
+    <div><a href="https://www.instagram.com/varnahal0712/">Instagram</a> | <a href="https://github.com/varnahal">Github</a></div>
     </footer>
 </body>
 </html>

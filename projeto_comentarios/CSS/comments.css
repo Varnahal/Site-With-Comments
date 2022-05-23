@@ -113,6 +113,7 @@ word-break: break-word;
 }
 .comment-area img{
     float: left;
+    height:50px;
     width: 50px;
     padding-right: 10px;
 }
@@ -147,10 +148,10 @@ footer{
     width: 100vw;
 }
 footer a{
-    text-decoration: none;
-    float: none;
-    color: aliceblue;
-}
+        text-decoration: none;
+        float: none;
+        color: aliceblue;
+    }
 }
 @media (max-width:500px) {
     section#conteudo1{
@@ -313,6 +314,8 @@ section#conteudo3 h5{
     font-size: 16pt;
 }
 }
-
-
+.disclaimer
+{
+    display:none;
+}
 

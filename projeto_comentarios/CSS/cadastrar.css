@@ -34,166 +34,88 @@ li a{
 li a:hover{
     text-decoration: underline;
 }
-@media (min-width:500px){
-    form{
-        width: 350px;
-        margin: 10px auto;
-        padding: 25px;
-        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.451);
-        background-color: rgba(255, 255, 255, 0.547);
-        border-radius: 30px;
-        margin-top: 250px;
-    }
-    form p#n{
-        padding: 5px;
-        border-radius: 30px;
-        background-color: rgba(255, 2, 2, 0.471);
-        text-align: center;
-    }
-    form p#p{
-        padding: 5px;
-        border-radius: 30px;
-        background-color: rgba(9, 255, 46, 0.471);
-        text-align: center;
-    }
-    img{
-        width: 20px;
-        float: left;
-        margin-right: 10px;
-    }
-    input{
-        display: block;
-        float: left;
-        width: 90%;
-        height: 30px;
-        font-size: 11pt;
-        color: white;
-        padding: 5px;
-        margin-bottom: 5px;
-        outline: none;
-        border-radius: 50px;
-        background-color: rgba(0, 0, 0, 0);
-        margin-left: 20px;
-    }
-    input[type='submit']{
-        margin-left: 25px;
-        margin-top: 20px;
-        
-    }
-    input:hover{
-        background-color: rgba(255, 255, 255, 0.608);
-        color: black;
-    }
 
-    h1{
-        padding: 10px;
-        text-align: center;
-    }
-    a{
-        text-decoration: none;
-        color: blue;
-    }
-    a:hover{
-        text-decoration: underline;
-    }
-    label{
-        display: block;
-    }
-    footer{
-        position: fixed;
-        text-align: center;
-        color: white;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-        background-color: rgb(32, 32, 32);
-        height: 40px;
-        padding: 1rem;
-        font-size: 30px;
-    }
-    footer a{
-        text-decoration: none;
-        float: none;
-        color: aliceblue;
-    }
+
+form{
+    width: 300px;
+    margin: 10px auto;
+    padding: 25px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.451);
+    background-color: rgba(255, 255, 255, 0.547);
+    border-radius: 30px;
+    margin-top: 60px;
+    height: 400px;
 }
-@media (max-width:500px){
-    form{
-        width: 300px;
-        margin: 10px auto;
-        padding: 25px;
-        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.451);
-        background-color: rgba(255, 255, 255, 0.547);
-        border-radius: 30px;
-        margin-top: 60px;
-        height: 400px;
-    }
-    form p#n{
-        padding: 5px;
-        border-radius: 30px;
-        background-color: rgba(255, 2, 2, 0.471);
-        text-align: center;
-    }
-    form p#p{
-        padding: 5px;
-        border-radius: 30px;
-        background-color: rgba(9, 255, 46, 0.471);
-        text-align: center;
-    }
-    input{
-        display: block;
-        float: left;
-        width: 87%;
-        height: 30px;
-        font-size: 11pt;
-        color: white;
-        padding: 5px;
-        margin-bottom: 5px;
-        outline: none;
-        border-radius: 50px;
-        background-color: rgba(0, 0, 0, 0);
-        margin-left: 20px;
-    }
-    input[type='submit']{
-        margin-left: 25px;
-        margin-top: 10px;
-        
-    }
-    input:hover{
-        background-color: rgba(255, 255, 255, 0.608);
-        color: black;
-    }
+form p#n{
+    padding: 5px;
+    border-radius: 30px;
+    background-color: rgba(255, 2, 2, 0.471);
+    text-align: center;
+}
+form p#p{
+    padding: 5px;
+    border-radius: 30px;
+    background-color: rgba(9, 255, 46, 0.471);
+    text-align: center;
+}
+input{
+    display: block;
+    float: left;
+    width: 87%;
+    height: 30px;
+    font-size: 11pt;
+    color: white;
+    padding: 5px;
+    margin-bottom: 5px;
+    outline: none;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 20px;
+}
+input[type='submit']{
+    margin-left: 25px;
+    margin-top: 10px;
+    
+}
+input:hover{
+    background-color: rgba(255, 255, 255, 0.608);
+    color: black;
+}
 
-    h1{
-        padding: 10px;
-        text-align: center;
-    }
-    a{
-        text-decoration: none;
-        color: blue;
-        float: left;
-    }
-    a:hover{
-        text-decoration: underline;
-    }
-    label{
-        display: block;
-    }
-    footer{
-        position: fixed;
-        text-align: center;
-        color: white;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-        background-color: rgb(32, 32, 32);
-        height: 40px;
-        padding: 1rem;
-        font-size: 30px;
-    }
-    footer a{
-        text-decoration: none;
-        float: none;
-        color: aliceblue;
-    }
+h1{
+    padding: 10px;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: blue;
+    float: left;
+}
+a:hover{
+    text-decoration: underline;
+}
+label{
+    display: block;
+}
+footer{
+    position: fixed;
+    text-align: center;
+    color: white;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgb(32, 32, 32);
+    height: 40px;
+    padding: 1rem;
+    font-size: 30px;
+}
+footer a{
+    text-decoration: none;
+    float: none;
+    color: aliceblue;
+}
+
+.disclaimer
+{
+    display:none;
 }
