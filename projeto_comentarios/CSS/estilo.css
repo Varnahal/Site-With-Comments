@@ -30,7 +30,7 @@ nav{
     background-color: rgb(32, 32, 32);
     height: 60px;
 }
-img{
+.imgbl{
     width: 40px;
     height: 40px;
     border-radius: 30px;
@@ -111,13 +111,13 @@ li a{
     cursor: pointer;
     transition: 1s ease;
 }
-.corpo .hbg:hover .hbg-1{
+.hbg:hover .hbg-1{
     background-color: #6a6a6a;
 }
-.corpo .hbg:hover .hbg-2{
+.hbg:hover .hbg-2{
     background-color: #6a6a6a;
 }
-.corpo .hbg:hover .hbg-3{
+.hbg:hover .hbg-3{
     background-color: #6a6a6a;
 }
 .corpo .hbg-1{
@@ -146,6 +146,7 @@ li a{
     transition: 1s ease;
     cursor: pointer;
     z-index: 2;
+    margin-top: -1px;
 }
 .x .hbg-1{
     width: 50px;

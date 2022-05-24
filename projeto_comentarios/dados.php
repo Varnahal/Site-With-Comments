@@ -8,6 +8,20 @@ if(!isset($_SESSION['id_master']))
     
 }
 ?>
+<?php
+        if(isset($_SESSION['id_user']))
+        {
+            require_once 'CLASSES/usuarios.php';
+            $p = new usuario('varnahal','localhost','root','');
+            $dados = $p->buscardados($_SESSION['id_user']);
+        }elseif(isset($_SESSION['id_master']))
+        {
+            require_once 'CLASSES/usuarios.php';
+            $p = new usuario('varnahal','localhost','root','');
+            $dados = $p->buscardados($_SESSION['id_master']);
+        }
+        
+    ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,30 +33,70 @@ if(!isset($_SESSION['id_master']))
 
     <title>Dados de Pessoas</title>
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <?php
-            if(isset($_SESSION['id_master']))
-            {
-                echo'<li><a href="dados.php">Dados</a></li>';
-            }
-            ?>
-            <li><a href="Comments.php">Comentários</a></li>
+<body id="corpo" class="corpo">
+    <header>
+        <nav>
+        <ul id="barras">
             <?php
             if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
             {
-                echo'<li><a href="Perfil.php">Perfil</a></li>';
-                echo'<li><a href="sair.php">Sair</a></li>';
+                echo '<li>
+                    <a href="Perfil.php">
+                    <img class="imgbl"src="imagens/',$dados["foto"],'" alt="">
+                    </a>
+                    </li>';
+
+            }
+
+            
+            ?>
+            
+            <li>
+                
+                <div class="hbg" id="hbg" onclick="hbg()">
+                    <div class = "hbg-1"></div>
+                    <div class = "hbg-2"></div>
+                    <div class = "hbg-3"></div>
+                </div>
+                
+            </li>
+            
+        </ul>
+    </nav>
+    <div id="barra-lateral">
+        <ul class="b-lateral">
+        <a href="index.php"><li id="brr">Home</li></a>
+            <?php
+            if(isset($_SESSION['id_master']))
+            {
+                echo'<a href="dados.php"><li id="brr">Dados</li></a>';
+            }
+            ?>
+            <a href="Comments.php"><li id="brr">Comentários</li></a>
+            <?php
+            if(isset($dados))
+            {
+                echo'<a href="Perfil.php"><li id="brr">Perfil</li></a>';
+                echo'<a href="sair.php"><li id="brr">Sair</li></a>';
             }else
             {
-                echo'<li><a href="entrar.php">Entrar</a></li>';
+                echo'<a href="entrar.php"><li id="brr">Entrar</li></a>';
             }
             
             ?>
-        </ul>
-    </nav>
+        </ul>          
+    </div>
+    <script>
+        function hbg(){
+            var bod = document.getElementById('corpo');
+            if(bod.classList.contains('corpo')){
+                bod.classList.replace('corpo','x');
+            }else if(bod.classList.contains('x')){
+                bod.classList.replace('x','corpo');
+            };
+        }
+    </script>
+    </header>
     <table>
         
         <tr id="titulo">

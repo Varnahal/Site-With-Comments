@@ -37,7 +37,7 @@ ob_start();
             {
                 echo '<li>
                     <a href="Perfil.php">
-                    <img src="imagens/',$dados["foto"],'" alt="">
+                    <img class="imgbl"src="imagens/',$dados["foto"],'" alt="">
                     </a>
                     </li>';
 

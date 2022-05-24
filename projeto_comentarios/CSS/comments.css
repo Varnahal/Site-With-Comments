@@ -15,27 +15,153 @@ div#largura{
 header{
     position: fixed;
     width: 100vw;
+    z-index: 1000;
 }
 nav{
     background-color: rgb(32, 32, 32);
     height: 60px;
 }
-ul{
+.imgbl{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    margin-right: -10px;
+    border: 2px solid black;
+    margin-top: 5px;
+    transition: 1s;
+}
+img:hover{
+    filter: brightness(2);
+}
+.corpo #barra-lateral{
+    overflow: hidden;
+    height: auto;
+    transition: max-height 1s ease;
+    max-height: 0px;
+    width: 250px;
+    border-radius: 0px 0px 0px 30px;
+    margin-left: auto;
+}
+.x #barra-lateral{
+    background: #00000080;
+    overflow: hidden;
+    height: auto;
+    transition: max-height 1s ease;
+    max-height: 500px;
+    width: 250px;
+    position: relative;
+    display: flex;
+    margin-left: auto;
+    flex-direction: row-reverse;
+    border-radius: 0px 0px 0px 30px;
+}
+li#brr {
+    width: 100%;
+    background-color: #242424;
+    border: 1px solid black;
+    transition: 0.5s;
+    font-size: 30px;
+}
+li#brr:hover{
+    background-color: #3d3c3c;
+}
+.x .b-lateral{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.corpo .b-lateral{
+    width: 100%;
+    margin-left: auto;
+}
+
+ul#barras{
     list-style: none;
     float: right;
-    margin-right: 20px;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }
 li{
     display: inline-flex;
     line-height: 60px;
     padding: 0px 10px;
+    height: 60px;
 }
 li a{
     text-decoration: none;
     color: white;
 }
-li a:hover{
-    text-decoration: underline;
+
+.corpo .hbg{
+    margin: 10px 0px;
+    cursor: pointer;
+    transition: 1s ease;
+}
+.hbg:hover .hbg-1{
+    background-color: #6a6a6a;
+}
+.hbg:hover .hbg-2{
+    background-color: #6a6a6a;
+}
+.hbg:hover .hbg-3{
+    background-color: #6a6a6a;
+}
+.corpo .hbg-1{
+    width: 50px;
+    height: 3px;
+    background-color: white;
+    margin-bottom: 10px;
+    transition: 1s ease;
+}
+.corpo .hbg-2{
+    width: 50px;
+    height: 3px;
+    background-color: white;
+    margin-bottom: 10px;
+    opacity: 1;
+    transition: 1s ease;
+}
+.corpo .hbg-3{
+    width: 50px;
+    height: 3px;
+    background-color: white;
+    transition: 1s ease;
+}
+.x .hbg{
+    margin: 10px 0px;
+    transition: 1s ease;
+    cursor: pointer;
+    z-index: 2;
+    margin-top: -1px;
+}
+.x .hbg-1{
+    width: 50px;
+    height: 3px;
+    background-color: white;
+    transform: rotate(-50deg) translateY(15px) translateX(-20px);
+    transition: 1s ease;
+    margin-bottom: 10px;
+}
+.x .hbg-2{
+    width: 50px;
+    height: 3px;
+    background-color: white;
+    transform: translateY(-30px);
+    transition: 1s ease;
+    margin-bottom: 10px;
+    opacity: 0;
+}
+.x .hbg-3{
+    width: 50px;
+    height: 3px;
+    transform: rotate(50deg);
+    transition: 1s ease;
+    background-color: white;
 }
 /*------------conteudo1--------------*/
 @media (min-width:500px) {
@@ -152,7 +278,12 @@ footer a{
         float: none;
         color: aliceblue;
     }
+    a{
+        text-decoration: none;
+        color: aliceblue;
+    } 
 }
+
 @media (max-width:500px) {
     section#conteudo1{
         width: 100%;
@@ -266,6 +397,10 @@ footer a{
         float: none;
         color: aliceblue;
     }
+    a{
+        text-decoration: none;
+        color: aliceblue;
+    } 
 }
 
 /*--------------aside------------*/
