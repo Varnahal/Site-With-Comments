@@ -220,7 +220,7 @@ form a{
 form a:hover{
     text-decoration: underline;
 }
-div#aaa{
+#aaa{
     width: 90%;
     display: flex;
     margin-left: auto;

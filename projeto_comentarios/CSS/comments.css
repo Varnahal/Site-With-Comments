@@ -190,7 +190,7 @@ p.text{
 /*--------formulario---------*/
 form img{
     width: 50px;
-    height: auto;
+    height: 50px;
     float: left;
     margin: 9px;
 }
@@ -309,7 +309,7 @@ footer a{
     /*--------formulario---------*/
     form img{
         width: 50px;
-        height: auto;
+        height: 50px;
         float: left;
         margin: 9px;
     }
@@ -453,4 +453,3 @@ section#conteudo3 h5{
 {
     display:none;
 }
-

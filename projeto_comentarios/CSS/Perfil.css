@@ -172,9 +172,9 @@ li a{
     transition: 1s ease;
     background-color: white;
 }
-a{
-    text-decoration: none;
+.b-lateral a{
     color: white;
+    text-decoration: none;
 }
 /*--------------conteudo do site------------------*/
 @media (min-width:894px) {
@@ -358,14 +358,6 @@ a{
         font-size: 1.45em;
         margin-bottom: 20px;
         text-align: center;
-    }
-    a{
-        text-decoration: none;
-        color: blue;
-        float: left;
-    }
-    a:hover{
-        text-decoration: underline;
     }
     label{
         display: block;
