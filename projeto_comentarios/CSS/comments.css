@@ -11,6 +11,14 @@ div#largura{
     width: 85%;
     margin: auto;
 }
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: rgb(32, 32, 32);;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(186, 186, 186);
+    border-radius: 30px;
+}
 /*----------------MENU-----------------------*/
 header{
     position: fixed;
