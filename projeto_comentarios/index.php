@@ -92,10 +92,37 @@ ob_start();
         }
     </script>
     </header>
-        <div id="conteudo">
-        <h3>Varnahal</h3>
-        <p>Parabéns você chegou ao meu site, fique a vontade para comentar na ala <a href="Comments.php "><u>comentários</u> </a>, mas para isso terá que estar logado primeiro <a href="entrar.php"><u>Clique aqui</u> </a> para logar ou Clique na barra superior em Entrar</p>
-</div>
+    <div id="conteudo">
+        <h3><?php if(isset($dados)){
+            echo $dados['nome'];
+        }else{
+            echo 'Varnahal';
+        } ?></h3>
+        <?php 
+            if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
+            {
+                echo '<p>Obrigado por acessar meu site, fique a vontade para olhar alguns dos meus <u><a href="#projetos">projetos</a></u> ou comentar na ala <a href="Comments.php "><u>comentários</u></a> ou mudar suas informações em <a href="Perfil.php "><u>Perfil</u></a></p>';
+            }else{
+               echo '<p>Olá vc esta no meu site, fique a vontade para olhar alguns dos meus <u><a href="#projetos">projetos</a></u> ou comentar na ala <a href="Comments.php "><u>comentários</u> </a>, mas para isso terá que estar logado primeiro <a href="entrar.php"><u>Clique aqui</u> </a> para logar ou Clique na barra lateral em Entrar</p>';
+            }
+        ?> 
+    </div>
+    <div id="projetos">
+        <h1 class="h1-pj">Principais projetos</h1>
+        <div class="conteiner-pj">
+            <ul class="ul-pj">
+                <a href="https://github.com/Varnahal/Aulas-MVC-Miriam-TechCod" target="_blank"><li class="pj">Project mark I  <p>Projeto MVC desenvolvido assistindo as aulas de Miriam Techcod no YouTube</p></li></a>
+                
+                <a href="https://github.com/Varnahal/Projetinhos" target="_blank"><li class="pj">Project mark II  <p>Varios Projetos desenvolvidos assistindo pelo Youtube</p></li></a>
+                
+                <a href="https://github.com/Varnahal/Aulas-Javascript" target="_blank"><li class="pj">Project mark III  <p>Aulas de JavaScript com o Professor Gustavo Guanabara</p></li></a>
+                
+                <a href="https://github.com/varnahal" target="_blank"> <li class="mais">Mais Projetos no Github</li></a>
+               
+            </ul>
+        </div>
+            
+    </div>
     <footer>  
     <div><a href="https://www.instagram.com/varnahal0712/">Instagram</a> | <a href="https://github.com/varnahal">Github</a></div>
     </footer>

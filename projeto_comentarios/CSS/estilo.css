@@ -13,6 +13,7 @@ body{
     flex-direction: column;
     margin: 0 auto;
     min-height: 100%;
+    overflow-x: hidden;
 }
 h3{
     font-size: 40pt;
@@ -181,7 +182,74 @@ li a{
     background-color: white;
 }
 /*--------------conteudo do site------------------*/
-@media (min-width:500px) {
+#projetos{
+    background-color: white;
+    background: linear-gradient(rgb(26, 26, 26)5%,white 95%);
+    height: auto;
+    color: rgb(255, 255, 255);margin-top: 70px;
+}
+
+.h1-pj{
+    text-align: center;
+    color: white;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.ul-pj {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 40px;
+}
+.pj{
+    margin: 10px;
+    background-color: rgba(50, 50, 50, 0.746);
+    border-radius: 30px;
+    padding: 10px;
+    padding-left: 20px;
+    height: auto;
+    width: auto;
+    transition: 1s;
+    border: 5px black solid;
+}
+.pj:hover{
+    box-shadow: 5px 5px 10px black;
+    transform: translateY(-10px);
+}
+
+.mais{
+    margin: 10px;
+    background-color: rgba(17, 17, 17, 0.746);
+    border-radius: 30px;
+    padding: 10px;
+    padding-left: 20px;
+    height: auto;
+    width: auto;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-around;
+    text-decoration: underline;
+    transition: 1s;
+}
+.mais:hover{
+    box-shadow: 5px 5px 10px black;
+    transform: translateY(-10px);
+}
+@media (min-width:555px) {
+    .h1-pj{
+        font-size: 90px;
+    }
+    .pj p{
+        font-size: 25px;
+        margin-left: 10px;
+        color: #c3c3c3;
+    }
+    .conteiner-pj{
+        padding: 20px;
+        font-size: 50px;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
     #conteudo {
         text-align: center;
         width: 80%;
@@ -216,7 +284,22 @@ li a{
         color: aliceblue;
     }   
 }
-@media (max-width:500px) {
+@media (max-width:555px) {
+    .h1-pj{
+        font-size: 70px;
+    }
+    .pj p{
+        font-size: 15px;
+        margin-left: 10px;
+        color: #c3c3c3;
+        line-height: 30px;
+    }
+    .conteiner-pj{
+        padding: 20px;
+        font-size: 30px;
+        font-family: 'Minecrafter Alt';
+        margin-bottom: 40px;
+    }
     #conteudo {
         text-align: center;
         width: 80%;
