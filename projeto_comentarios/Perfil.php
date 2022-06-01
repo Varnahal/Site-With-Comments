@@ -178,7 +178,7 @@ if(isset($_POST['btn_salvar'])){
     
 echo '<h1 id=an>Foto: </h1><img src="imagens/'.$data['foto'].'" alt="">';
 echo'<h1 id=an>Nome:'.$data['nome'].'</h1>';
-echo'<h1 id=an>Senha:Segredo hihihihiihihi</h1>';
+echo'<h1 id=an>Senha: Se vc nn sabe eu é que vou saber?</h1>';
 ?>
 </div>
     
@@ -199,9 +199,9 @@ echo'<h1 id=an>Senha:Segredo hihihihiihihi</h1>';
         <label for="">FOTO DE PERFIL:</label>
         <input type="file" name="foto" id="foto">
         <label for="nome">NOME:</label>
-        <input type="text" name="nome" id="nome" maxlength="220">
+        <input type="text" name="nome" id="nome" placeholder="<?php echo $dados['nome'] ?>" maxlength="220">
         <label for="senha">SENHA:</label>
-        <input type="password" name="senha" id="senha" maxlength="220">
+        <input type="password" name="senha" id="senha" placeholder="Sua senha" maxlength="220">
         <input type="submit" value="Salvar" name="btn_salvar">
     </form> 
 </section>

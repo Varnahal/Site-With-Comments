@@ -210,6 +210,9 @@ li a{
     width: auto;
     transition: 1s;
     border: 5px black solid;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 .pj:hover{
     box-shadow: 5px 5px 10px black;

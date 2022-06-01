@@ -101,9 +101,9 @@ ob_start();
         <?php 
             if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
             {
-                echo '<p>Obrigado por acessar meu site, fique a vontade para olhar alguns dos meus <u><a href="#projetos">projetos</a></u> ou comentar na ala <a href="Comments.php "><u>comentários</u></a> ou mudar suas informações em <a href="Perfil.php "><u>Perfil</u></a></p>';
+                echo '<p>Obrigado por acessar meu site, fique a vontade para olhar alguns dos meus <u><a href="#projetos">projetos</a></u> ou comentar na ala <a href="Comments.php "><u>comentários</u></a> ou mudar suas informações em <a href="Perfil.php "><u>Perfil</u>.</a></p>';
             }else{
-               echo '<p>Olá vc esta no meu site, fique a vontade para olhar alguns dos meus <u><a href="#projetos">projetos</a></u> ou comentar na ala <a href="Comments.php "><u>comentários</u> </a>, mas para isso terá que estar logado primeiro <a href="entrar.php"><u>Clique aqui</u> </a> para logar ou Clique na barra lateral em Entrar</p>';
+               echo '<p>Olá vc esta no meu site, fique a vontade para olhar alguns dos meus <u><a href="#projetos">projetos</a></u> ou comentar na ala <a href="Comments.php "><u>comentários</u> </a>, mas para isso terá que estar logado primeiro <a href="entrar.php"><u>Clique aqui</u> </a> para logar ou Clique na barra lateral em Entrar.</p>';
             }
         ?> 
     </div>
