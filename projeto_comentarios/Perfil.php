@@ -28,6 +28,7 @@ ob_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/Perfil.css">
+    <link rel="shortcut icon" href="imagens/V.png" type="image/x-icon">
     <title>Perfil</title>
 </head>
 <body id="corpo" class="corpo">
@@ -134,7 +135,7 @@ if(isset($_POST['btn_salvar'])){
     }
     if(isset($_FILES['foto'])){
        if(!empty($_FILES['foto']['name'])){
-        var_dump($_FILES['foto']);
+        //var_dump($_FILES['foto']);
         if($_FILES['foto']['type'] == 'image/png'){
             $nome_foto = md5($_FILES['foto']['name']. rand(1,999)).'.png';
         }else

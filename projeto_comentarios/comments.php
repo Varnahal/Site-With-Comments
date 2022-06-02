@@ -24,7 +24,7 @@ require_once 'CLASSES/comentarios.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10, minimum-scale=1.0">
     <link rel="stylesheet" href="CSS/comments.css">
-    <link rel="shortcut icon" href="imagens/jose.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="imagens/V.png" type="image/x-icon">
 
     <title>Comentários</title>
 </head>
@@ -94,15 +94,13 @@ require_once 'CLASSES/comentarios.php';
     </header>
 
     <div id="largura">
-    <h1>Uma foto do José, é somente uma foto do josé aceite</h1>
+    <h1>Comentários</h1>
         <section id='conteudo1'>
+            <div id="img-com">
+                <img id='jose' src="imagens/V.png" alt="José">
+            </div>
             
-            <img id='jose' src="imagens/jose.jpg" alt="José">
-            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusantium voluptatibus deleniti quasi. Eligendi recusandae fugiat deserunt quaerat, quis iusto voluptates commodi assumenda necessitatibus, odio, incidunt laborum. Soluta, minima ullam..</p>
-            <p class="text">1. O ponto de usar o Lorem Ipsum</p>
-            <p class="text">2. È que ele tem uma distribuição de letras</p>
-            <p class="text">3. Lorem Ipsum é que ele tem uma distribuição</p>
-            <p class="text">4. letras mais ou menos normal</p>
+            <p class="text">Está aqui é a area de comentários<?php if(!isset($dados_user)){echo ', para comentar é necessario estar logado';}?>, você pode comentar oque quiser aqui, pode ser uma recomendação para o site ou somente algo que queira comentar.</p>
             <h2>Deixe seu comentário</h2>
             
                 <?php
@@ -141,7 +139,7 @@ require_once 'CLASSES/comentarios.php';
                         $data = new DateTime($v['dia']);
                         if(isset($_SESSION['id_master']))
                         {
-                            $p = "<a href='excluir.php?id=".$v['id']."'>Excluir</a>"; 
+                            $p = "<a href='excluir.php?id=".$v['id']."'><u>Excluir</u></a>"; 
                         }else
                         {
                             if(!isset($_SESSION['id_master']) && isset($_SESSION['id_user']))

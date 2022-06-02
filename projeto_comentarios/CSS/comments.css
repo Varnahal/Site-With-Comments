@@ -10,6 +10,10 @@ body{
 div#largura{
     width: 85%;
     margin: auto;
+    margin-top: 20px;
+}
+#img-com{
+    text-align: center;
 }
 ::-webkit-scrollbar{
     width: 10px;
@@ -24,6 +28,7 @@ header{
     position: fixed;
     width: 100vw;
     z-index: 1000;
+    top: 0px;
 }
 nav{
     background-color: rgb(32, 32, 32);
@@ -37,9 +42,10 @@ nav{
     border: 2px solid black;
     margin-top: 5px;
     transition: 1s;
+    background-color: rgb(223, 223, 223);
 }
-img:hover{
-    filter: brightness(2);
+.imgbl:hover{
+    filter: brightness(1.5);
 }
 .corpo #barra-lateral{
     overflow: hidden;
@@ -181,13 +187,15 @@ li a{
 
 }
 section#conteudo1 img#jose{
-    width: 100%;
+    width: auto;
     height: 400px;
+    align-self: center;
 }
 h1{
     padding: 70px 0px 25px 0px;
     font-size: 27pt;
     line-height: 40pt;
+    font-size: 100px;
 }
 p.text{
     font-size: 15pt;
@@ -305,7 +313,7 @@ footer a{
     }
     h1{
         padding: 70px 0px 25px 0px;
-        font-size: 27pt;
+        font-size: 50px;
         line-height: 40pt;
     }
     p.text{

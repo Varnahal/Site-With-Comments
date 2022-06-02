@@ -34,8 +34,9 @@ nav{
     border: 2px solid black;
     margin-top: 5px;
     transition: 1s;
+    background-color: rgb(223, 223, 223);
 }
-img:hover{
+.imgbl:hover{
     filter: brightness(2);
 }
 .corpo #barra-lateral{
