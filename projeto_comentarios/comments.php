@@ -145,7 +145,11 @@ require_once 'CLASSES/comentarios.php';
                         if(isset($_SESSION['id_master']))
                         {
                             $p = "<a href='excluir.php?id=".$v['id']."'><u>Excluir</u></a>"; 
-                            $ed = "<u>Editar</u>";
+                            if($v['fk_id_usuraio'] == $_SESSION['id_master'])
+                                {$ed = "<u>Editar</u>";}else{
+                                    $ed = '';
+                                }
+                            
                             
                         }else
                         {
