@@ -210,6 +210,15 @@ input[type="text"] {
     display: flex;
     flex-direction: column;
 }
+textarea.texted {
+    all: unset;
+    outline: none;
+    resize: none;
+    width: -webkit-fill-available;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    /* all: unset; */
+}
 /*------------conteudo1--------------*/
 @media (min-width:500px) {
    section#conteudo1{

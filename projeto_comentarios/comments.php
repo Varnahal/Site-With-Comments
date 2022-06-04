@@ -190,18 +190,20 @@ require_once 'CLASSES/comentarios.php';
                     console.log(inutil)
                     var edit = document.getElementById(`edit${idtxt}`);
                     var pcomtxt = String(pcom.innerHTML);
-                    pcom.innerHTML = `<form action="editar.php?iduser=${idtxt}" method="post" id="formedit"><input type="text" value="${pcomtxt}" name="texted"><input id="salvar" type="submit" value="salvar" name="editar_texto"><h1 id="cancelar" onclick="cancelar('${pcomtxt}',${id})"><u>cancelar</u></h1></form>`;
+                    
+                    pcom.innerHTML = `<form action="editar.php?iduser=${idtxt}" method="post" id="formedit"><textarea oninput="if(this.scrollHeight > this.offsetHeight){this.rows += 1}elseif(this.scrollHeight < this.offsetHeight){this.rows -= 1} " name="texted" id="ta${idtxt}" class="texted" maxlength="400" placeholder="Digita algun bagui aí">${pcomtxt}</textarea><input id="salvar" type="submit" value="salvar" name="editar_texto"><h1 id="cancelar" onclick="cancelar(${id})"><u>cancelar</u></h1></form>`
                     edit.innerHTML ='';
 
                 }
-                function cancelar(txt,id){
-                    console.log(String(txt));
+                function cancelar(id){
                     console.log(String(id));
                     var idtxt = String(id);
                     var inutil = String('pcom'+idtxt);
+                    var ta = document.getElementById(`ta${idtxt}`).innerHTML;
+                    var tatxt = String(ta);
                     var pcom = document.getElementById(inutil);
                     var edit = document.getElementById(`edit${idtxt}`);
-                    pcom.innerHTML = txt;
+                    pcom.innerHTML = tatxt;
                     edit.innerHTML ='<u>editar</u>';
                 }
             </script>
