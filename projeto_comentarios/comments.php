@@ -137,34 +137,43 @@ require_once 'CLASSES/comentarios.php';
                 if(count($dados)>0){
                     foreach ($dados as $v) {
                         $data = new DateTime($v['dia']);
+                        if ($v['editado'] == 1) {
+                            $editado = ' (editado) '; 
+                        }else{
+                            $editado = '';
+                        }
                         if(isset($_SESSION['id_master']))
                         {
                             $p = "<a href='excluir.php?id=".$v['id']."'><u>Excluir</u></a>"; 
+                            $ed = "<u>Editar</u>";
+                            
                         }else
                         {
                             if(!isset($_SESSION['id_master']) && isset($_SESSION['id_user']))
                             {
                                 if($v['fk_id_usuraio'] == $_SESSION['id_user'])
                                 {
-                                   $p = "<a href='excluir.php?id=".$v['id']."'>Excluir</a>"; 
+                                   $p = "<a href='excluir.php?id=".$v['id']."'><u>Excluir</u></a>";
+                                   $ed = "<u>Editar</u>"; 
                                 }
                                 else
                                 {
                                     $p = "";
-
+                                    $ed = '';
                                 }
                             
                             }else
                             {
+                                $ed = '';
                                 $p = "";
                             }
                         }
-                        
+                        $idtxt = strval($v['id']);
                       echo"<div class='comment-area'>
                             <img src='imagens/{$v['foto']}' alt=''>
-                            <h3>{$v['nome']}</h3>
-                            <h4>{$v['horario']} {$data->format('d/m/Y')}&nbsp;".$p."</h4>
-                            <p>{$v['comentario']}</p>
+                            <h3>{$v['nome']} $editado</h3>
+                            <h4>{$v['horario']} {$data->format('d/m/Y')}&nbsp;".$p.' '.'<span id="edit'.$v['id'].'" onclick="edit('. $idtxt.')">'.$ed.'</span>'."</h4>
+                            <p id='pcom".$v['id']."'>{$v['comentario']}</p>
                             </div> ";
                     }
                 }else
@@ -172,11 +181,35 @@ require_once 'CLASSES/comentarios.php';
                     echo'tem nada nn rala!';
                 }
             ?>
+            <script>
+                function edit(id){
+                    var idtxt = String(id);
+                    var inutil = String('pcom'+idtxt);
+                    
+                    var pcom = document.getElementById(inutil);
+                    console.log(inutil)
+                    var edit = document.getElementById(`edit${idtxt}`);
+                    var pcomtxt = String(pcom.innerHTML);
+                    pcom.innerHTML = `<form action="editar.php?iduser=${idtxt}" method="post" id="formedit"><input type="text" value="${pcomtxt}" name="texted"><input id="salvar" type="submit" value="salvar" name="editar_texto"><h1 id="cancelar" onclick="cancelar('${pcomtxt}',${id})"><u>cancelar</u></h1></form>`;
+                    edit.innerHTML ='';
+
+                }
+                function cancelar(txt,id){
+                    console.log(String(txt));
+                    console.log(String(id));
+                    var idtxt = String(id);
+                    var inutil = String('pcom'+idtxt);
+                    var pcom = document.getElementById(inutil);
+                    var edit = document.getElementById(`edit${idtxt}`);
+                    pcom.innerHTML = txt;
+                    edit.innerHTML ='<u>editar</u>';
+                }
+            </script>
             
         </section>
         <section id='conteudo2'>
             <div>
-            <img src='imagens/{$v['foto']}' alt=''>
+            
             <p>Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui Anuncie-Aqui.</p>
             </div>
         </section>

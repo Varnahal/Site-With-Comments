@@ -18,7 +18,7 @@ class comentarios{
     }
     public function buscarComentarios()
     {
-        $cmd = $this->pdo->prepare("SELECT a.id,a.comentario,a.dia,a.horario,a.fk_id_usuraio,b.nome,b.foto FROM comentarios a INNER JOIN usuarios b ON a.fk_id_usuraio = b.id ORDER BY a.id DESC");
+        $cmd = $this->pdo->prepare("SELECT a.id,a.comentario,a.dia,a.horario,a.fk_id_usuraio,a.editado,b.nome,b.foto FROM comentarios a INNER JOIN usuarios b ON a.fk_id_usuraio = b.id ORDER BY a.id DESC");
         $cmd->execute();
         $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
         return $dados;
@@ -41,13 +41,30 @@ class comentarios{
     }
     public function publicar($id,$com)
     {
-        $cmd = $this->pdo->prepare("INSERT INTO comentarios(comentario, dia, horario, fk_id_usuraio) VALUES (:c,:d,:h,:fk)");
+        $cmd = $this->pdo->prepare("INSERT INTO comentarios(comentario, dia, horario, fk_id_usuraio,editado) VALUES (:c,:d,:h,:fk,0)");
         $cmd->bindValue(":c",$com);
         $cmd->bindValue(":d",date('Y-m-d'));
         $cmd->bindValue(":h",date('H:i'));
         $cmd->bindValue(":fk",$id);
         $cmd->execute();
     }
+    public function editar($id_user,$com,$id_com){
+        $cmd = $this->pdo->prepare("SELECT a.id,a.comentario,a.dia,a.horario,a.fk_id_usuraio,b.nome,b.foto,b.id FROM comentarios a INNER JOIN usuarios b ON a.fk_id_usuraio = b.id WHERE a.fk_id_usuraio = :fkid AND a.id = :id");
+        $cmd->bindValue(':fkid',$id_user);
+        $cmd->bindValue(':id',$id_com);
+        $cmd->execute();
+        if($cmd->rowCount() == 0){
+            return false;
+        }else{
+            $p = $this->pdo->prepare("UPDATE comentarios SET comentario=:c,dia=:d,horario=:h,fk_id_usuraio=:fk,editado=1 WHERE id = :id AND fk_id_usuraio = :fkuser");
+            $p->bindValue(':c',$com);
+            $p->bindValue(':d',date('Y-m-d'));
+            $p->bindValue(':h',date('H:i'));
+            $p->bindValue(':fk',$id_user);
+            $p->bindValue(':id',$id_com);
+            $p->bindValue(':fkuser',$id_user);
+            $p->execute();
+        }
+    }
 }
-
 ?>

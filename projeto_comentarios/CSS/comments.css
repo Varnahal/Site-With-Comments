@@ -78,6 +78,8 @@ li#brr {
 }
 li#brr:hover{
     background-color: #3d3c3c;
+    transform: translateX(10px);
+    box-shadow: 10px 10px 10px black;
 }
 .x .b-lateral{
     display: flex;
@@ -176,6 +178,37 @@ li a{
     transform: rotate(50deg);
     transition: 1s ease;
     background-color: white;
+}
+input#salvar {
+    width: auto;
+    height: auto;
+    all: unset;
+    border: solid 1px white;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 10px;
+}
+u{
+    cursor: pointer;
+}
+input[type="text"] {
+    width: -webkit-fill-available;
+}
+#cancelar{
+    font-size: 10pt;
+    padding: 0;
+}
+#formedit{
+    display: flex;
+    word-break: break-word;
+    flex-direction: row;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+.comment-area{
+    display: flex;
+    flex-direction: column;
 }
 /*------------conteudo1--------------*/
 @media (min-width:500px) {
