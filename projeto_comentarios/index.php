@@ -93,6 +93,7 @@ ob_start();
     </script>
     </header>
     <div id="conteudo">
+        <div id="conteudo-conteiner">
         <h3><?php if(isset($dados)){
             echo $dados['nome'];
         }else{
@@ -101,12 +102,28 @@ ob_start();
         <?php 
             if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
             {
-                echo '<p>Obrigado por acessar meu site, fique a vontade para olhar alguns dos meus <u><a href="#projetos">projetos</a></u> ou comentar na ala <a href="Comments.php "><u>comentários</u></a> ou mudar suas informações em <a href="Perfil.php "><u>Perfil</u>.</a> Vários atributos do site mudam caso você esteja logado, então explore</p>';
+                echo '<p>Obrigado por acessar meu site, fique a vontade para olhar alguns dos meus <u><a href="#projetos">projetos</a></u> ou comentar na ala <a href="Comments.php "><u>comentários</u>.</a> Também pode mudar suas informações em <a href="Perfil.php "><u>Perfil</u>.</a> Vários atributos do site mudam caso você esteja logado, então explore</p>';
             }else{
-               echo '<p>Olá vc esta no meu site, fique a vontade para olhar alguns dos meus <u><a href="#projetos">projetos</a></u> ou comentar na ala <a href="Comments.php "><u>comentários</u> </a>, mas para isso terá que estar logado primeiro <a href="entrar.php"><u>Clique aqui</u> </a> para logar ou Clique na barra lateral em Entrar. Vários atributos do site mudam caso você esteja logado, então recomendo que <a href="entrar.php"><u>entre</u> </a></p>';
+               echo '<p>Olá vc está no meu site, fique a vontade para olhar alguns dos meus <u><a href="#projetos">projetos</a></u> ou comentar na ala <a href="Comments.php "><u>comentários</u> </a>, mas para isso terá que estar logado <a href="entrar.php"><u>Clique aqui</u> </a> para logar ou Clique na barra lateral em Entrar. Vários atributos do site mudam caso você esteja logado, então recomendo que <a href="entrar.php"><u>entre</u> </a></p>';
             }
         ?> 
+        </div>
+        
     </div>
+    <section class="sobre">
+        <div class="sobre-h1">
+                <h1>Sobre mim</h1>
+            </div>
+        <div class="sobre-conteiner">
+            
+            <div class="texto-sobre">
+                <p>
+                   Olá meu nome é Varnahal tenho 17 anos, estudo Programação por meio de videos na internet, hoje em dia estou mais focado em desenvolvimento web ultilizando de HTML5, CSS3, JavaScript e PHP para fazer meus projetos e montar este site.<br>
+                   Também planejo além de ano que vem fazer uma faculdade de engenharia da computação, tenho a vontade de até o final do ano começar a estudar outras linguagens que não tenham tanto aver com desenvolvimento web e mais pro lado da engenharia e AI.
+                </p>
+            </div>
+        </div>
+    </section>
     <div id="projetos">
         <h1 class="h1-pj">Principais projetos</h1>
         <div class="conteiner-pj">
