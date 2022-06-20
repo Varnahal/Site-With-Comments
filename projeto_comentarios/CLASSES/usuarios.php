@@ -16,7 +16,7 @@ class usuario{
             echo"Erro por favor tente novamente. Erro:$e";
         }
     }
-    public function cadastrar($n,$e,$s)
+    public function cadastrar($n,$e,$s,$desc=null)
     {   
         $j = password_hash($s,PASSWORD_DEFAULT);
         $cmd = $this->pdo->prepare("SELECT id FROM usuarios WHERE email = :e");
@@ -24,10 +24,11 @@ class usuario{
         $cmd->execute();
         if($cmd->rowCount()==0)
         {
-        $cmd = $this->pdo->prepare("INSERT INTO usuarios values(default,:n,:e,:s,'perfil.png')");
+        $cmd = $this->pdo->prepare("INSERT INTO usuarios values(default,:n,:e,:s,'perfil.png',:d)");
         $cmd->bindValue(":n",$n);
         $cmd->bindValue(":e",$e);
         $cmd->bindValue(":s",$j);
+        $cmd->bindValue(":d",$desc);
         $cmd->execute();
         return true;
         }else
@@ -106,7 +107,15 @@ class usuario{
         if($cmd->rowCount()>0){
             return true;
         }else{
+            $cmd = $this->pdo->prepare("SELECT * FROM usuarios WHERE nome = :n AND id = :id");
+        $cmd->bindValue(":n",$nome);
+        $cmd->bindValue(":id",$id);
+        $cmd->execute();
+        if($cmd->rowCount()>0){
+            return true;
+        }else{
             return false;
+        }   
         }
     }
     public function MudarInfoSenha($id,$senha)
@@ -124,6 +133,28 @@ class usuario{
             return false;
         }
     }
+    public function MudarInfoDesc($id,$desc)
+    {
+        $cmd = $this->pdo->prepare("UPDATE usuarios
+        SET descricao = :d
+        WHERE id = :id");
+        $cmd->bindValue(":d",$desc);
+        $cmd->bindValue(":id",$id);
+        $cmd->execute();
+        if($cmd->rowCount()>0){
+            return true;
+        }else{
+            $cmd = $this->pdo->prepare("SELECT * FROM usuarios WHERE descricao = :d AND id = :id");
+        $cmd->bindValue(":d",$desc);
+        $cmd->bindValue(":id",$id);
+        $cmd->execute();
+        if($cmd->rowCount()>0){
+            return true;
+        }else{
+            return false;
+        }   
+        }
+    }
     public function MudarInfoFoto($id,$foto)
     {   
         $cmd = $this->pdo->prepare("UPDATE usuarios
@@ -139,5 +170,4 @@ class usuario{
         }
     }
 }
-
 ?>

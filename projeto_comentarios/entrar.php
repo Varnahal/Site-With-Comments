@@ -6,6 +6,17 @@ if(isset($_POST['logar_texto']))
     $_SESSION['msg'] = "Faça login para comentar";
 }
 ?>
+ <?php
+        if(isset($_SESSION['id_user']))
+        {
+            header('Locaation:index.php');
+        }elseif(isset($_SESSION['id_master']))
+        {
+            header('Locaation:index.php');
+
+        }
+        
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,11 +36,7 @@ if(isset($_POST['logar_texto']))
             <?php
             if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
             {
-                echo '<li>
-                    <a href="Perfil.php">
-                    <img class="imgbl"src="imagens/',$dados["foto"],'" alt="">
-                    </a>
-                    </li>';
+                header('Location:index.php');
 
             }
 
@@ -61,8 +68,7 @@ if(isset($_POST['logar_texto']))
             <?php
             if(isset($dados))
             {
-                echo'<a href="Perfil.php"><li id="brr">Perfil</li></a>';
-                echo'<a href="sair.php"><li id="brr">Sair</li></a>';
+                echo'<a href="Perfil-individual.php?id=',$dados["id"],'"><li id="brr">Perfil</li></a>';
             }else
             {
                 echo'<a href="entrar.php"><li id="brr">Entrar</li></a>';

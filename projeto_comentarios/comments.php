@@ -36,7 +36,7 @@ require_once 'CLASSES/comentarios.php';
             if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
             {
                 echo '<li>
-                    <a href="Perfil.php">
+                <a href="Perfil-individual.php?id=',$dados_user["id"],'">
                     <img class="imgbl"src="imagens/',$dados_user["foto"],'" alt="">
                     </a>
                     </li>';
@@ -71,8 +71,7 @@ require_once 'CLASSES/comentarios.php';
             <?php
             if(isset($dados_user))
             {
-                echo'<a href="Perfil.php"><li id="brr">Perfil</li></a>';
-                echo'<a href="sair.php"><li id="brr">Sair</li></a>';
+                echo'<a href="Perfil-individual.php?id=',$dados_user["id"],'"><li id="brr">Perfil</li></a>';
             }else
             {
                 echo'<a href="entrar.php"><li id="brr">Entrar</li></a>';
@@ -174,8 +173,8 @@ require_once 'CLASSES/comentarios.php';
                         }
                         $idtxt = strval($v['id']);
                       echo"<div class='comment-area'>
-                            <img src='imagens/{$v['foto']}' alt=''>
-                            <h3>{$v['nome']} $editado</h3>
+                            <a href='Perfil-individual.php?id={$v['fk_id_usuraio']}'><img src='imagens/{$v['foto']}' alt=''>
+                            <h3>{$v['nome']}</a> $editado</h3>
                             <h4>{$v['horario']} {$data->format('d/m/Y')}&nbsp;".$p.' '.'<span id="edit'.$v['id'].'" onclick="edit('. $idtxt.')">'.$ed.'</span>'."</h4>
                             <p id='pcom".$v['id']."'>{$v['comentario']}</p>
                             </div> ";

@@ -216,6 +216,7 @@ li a{
     }
     h1#an{
         float: left;
+        word-break: break-word;
     }
     form p#n{
         padding: 5px;
@@ -236,6 +237,20 @@ li a{
         margin-right: 10px;
     }
     input{
+        display: block;
+        float: left;
+        width: 90%;
+        height: 30px;
+        font-size: 11pt;
+        color: white;
+        padding: 5px;
+        margin-bottom: 5px;
+        outline: none;
+        border-radius: 50px;
+        background-color: rgba(0, 0, 0, 0);
+        margin-left: 20px;
+    }
+    textarea{
         display: block;
         float: left;
         width: 90%;
@@ -307,6 +322,7 @@ li a{
     }
     h1#an{
         float: left;
+        word-break: break-word;
     }
     img{
         width: 100px;
@@ -351,6 +367,24 @@ li a{
         border-radius: 50px;
         background-color: rgba(0, 0, 0, 0);
         margin-left: 20px;
+    }
+    textarea{
+        display: block;
+        float: left;
+        width: 87%;
+        height: 30px;
+        font-size: 11pt;
+        color: white;
+        padding: 5px;
+        margin-bottom: 5px;
+        outline: none;
+        border-radius: 50px;
+        background-color: rgba(0, 0, 0, 0);
+        margin-left: 20px;
+    }
+    textarea:hover{
+        background-color: rgba(255, 255, 255, 0.608);
+        color: black;
     }
     input[type='submit']{
         margin-left: 25px;

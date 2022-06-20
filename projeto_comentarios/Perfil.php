@@ -39,7 +39,7 @@ ob_start();
             if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
             {
                 echo '<li>
-                    <a href="Perfil.php">
+                    <a href="Perfil-individual.php?id=',$dados["id"],'">
                     <img class="imgbl"src="imagens/',$dados["foto"],'" alt="">
                     </a>
                     </li>';
@@ -74,8 +74,7 @@ ob_start();
             <?php
             if(isset($dados))
             {
-                echo'<a href="Perfil.php"><li id="brr">Perfil</li></a>';
-                echo'<a href="sair.php"><li id="brr">Sair</li></a>';
+                echo'<a href="Perfil-individual.php?id=',$dados["id"],'"><li id="brr">Perfil</li></a>';
             }else
             {
                 echo'<a href="entrar.php"><li id="brr">Entrar</li></a>';
@@ -110,6 +109,23 @@ if(isset($_POST['btn_salvar'])){
 
         }elseif(isset($_SESSION['id_master'])){
             if($p->MudarInfoNome($_SESSION['id_master'],$dados_user['nome'])){
+                $_SESSION['msg-p'] = "alterado com sucesso";
+            }else{
+                $_SESSION['msg'] = "não foi possivel alterar";
+            }
+        }
+        
+    }
+    if(!empty($dados_user['desc'])){
+        if(isset($_SESSION['id_user'])){
+            if($p->MudarInfoDesc($_SESSION['id_user'],$dados_user['desc'])){
+                $_SESSION['msg-p'] = "alterado com sucesso";
+            }else{
+                $_SESSION['msg'] = "não foi possivel alterar";
+            }
+
+        }elseif(isset($_SESSION['id_master'])){
+            if($p->MudarInfoDesc($_SESSION['id_master'],$dados_user['desc'])){
                 $_SESSION['msg-p'] = "alterado com sucesso";
             }else{
                 $_SESSION['msg'] = "não foi possivel alterar";
@@ -179,6 +195,7 @@ if(isset($_POST['btn_salvar'])){
     
 echo '<h1 id=an>Foto: </h1><img src="imagens/'.$data['foto'].'" alt="">';
 echo'<h1 id=an>Nome:'.$data['nome'].'</h1>';
+echo'<h1 id=an>descrição:'.$data['descricao'].'</h1>';
 echo'<h1 id=an>Senha: Se vc nn sabe eu é que vou saber?</h1>';
 ?>
 </div>
@@ -200,7 +217,9 @@ echo'<h1 id=an>Senha: Se vc nn sabe eu é que vou saber?</h1>';
         <label for="">FOTO DE PERFIL:</label>
         <input type="file" name="foto" id="foto">
         <label for="nome">NOME:</label>
-        <input type="text" name="nome" id="nome" placeholder="<?php echo $dados['nome'] ?>" maxlength="220">
+        <input type="text" name="nome" id="nome" value="<?php echo $dados['nome'] ?>" maxlength="220">
+        <label for="desc">DESCRIÇÃO:</label>
+        <textarea name="desc" id="desc"><?php echo $data['descricao'];?></textarea>
         <label for="senha">SENHA:</label>
         <input type="password" name="senha" id="senha" placeholder="Sua senha" maxlength="220">
         <input type="submit" value="Salvar" name="btn_salvar">

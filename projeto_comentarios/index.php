@@ -36,7 +36,7 @@ ob_start();
             if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
             {
                 echo '<li>
-                    <a href="Perfil.php">
+                <a href="Perfil-individual.php?id=',$dados["id"],'">
                     <img class="imgbl"src="imagens/',$dados["foto"],'" alt="">
                     </a>
                     </li>';
@@ -71,8 +71,7 @@ ob_start();
             <?php
             if(isset($dados))
             {
-                echo'<a href="Perfil.php"><li id="brr">Perfil</li></a>';
-                echo'<a href="sair.php"><li id="brr">Sair</li></a>';
+                echo'<a href="Perfil-individual.php?id=',$dados["id"],'"><li id="brr">Perfil</li></a>';
             }else
             {
                 echo'<a href="entrar.php"><li id="brr">Entrar</li></a>';

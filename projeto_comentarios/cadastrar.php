@@ -20,11 +20,7 @@ ob_start();
             <?php
             if(isset($_SESSION['id_user']) || isset($_SESSION['id_master']))
             {
-                echo '<li>
-                    <a href="Perfil.php">
-                    <img class="imgbl"src="imagens/',$dados["foto"],'" alt="">
-                    </a>
-                    </li>';
+                header('Location:index.php');
 
             }
 
@@ -56,8 +52,7 @@ ob_start();
             <?php
             if(isset($dados))
             {
-                echo'<a href="Perfil.php"><li id="brr">Perfil</li></a>';
-                echo'<a href="sair.php"><li id="brr">Sair</li></a>';
+                header('Location:index.php');
             }else
             {
                 echo'<a href="entrar.php"><li id="brr">Entrar</li></a>';
@@ -87,12 +82,13 @@ ob_start();
         $nome = addslashes($data['nome']);
         $email = addslashes($data['email']);
         $senha = addslashes($data['senha']);
+        $desc = addslashes($data['desc']);
         $confsenha = addslashes($data['confsenha']);
         if(!empty($nome) && !empty($email) &&!empty($senha) &&!empty($confsenha)){
             if($senha == $confsenha){
                 require_once 'CLASSES/usuarios.php';
                 $j = new usuario('varnahal','localhost','root','');
-                if($j->cadastrar($nome,$email,$senha))
+                if($j->cadastrar($nome,$email,$senha,$desc))
                 {
                     $_SESSION['msg-p'] = "Usuario cadastrado com sucesso";
                 } 
@@ -135,6 +131,8 @@ ob_start();
         <input type="text" name="nome" id="nome" maxlength="220">
         <label for="email">E-MAIL</label>
         <input type="email" name="email" id="email" maxlength="220">
+        <label for="desc">DESCRIÇÃO(opcional)</label>
+        <textarea name="desc" id="desc"></textarea>
         <label for="senha">SENHA</label>
         <input type="password" name="senha" id="senha" maxlength="220">
         <label for="confsenha">CONFIRMAR SENHA</label>
