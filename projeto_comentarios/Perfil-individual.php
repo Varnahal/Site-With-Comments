@@ -132,7 +132,7 @@ ob_start();
                 
                 }
                 ?>
-        
+        <div class="jogo"><a href="jogo/jogo.php">Jogar</a></div>
     </section>
     
     <footer>  
