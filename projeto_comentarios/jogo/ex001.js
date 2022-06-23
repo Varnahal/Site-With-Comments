@@ -44,7 +44,7 @@ function morreu(){
             body.classList.remove('speed');
             body.classList.add('speed1');
         }
-        if(cont == 50){
+        if(cont > 49){
             body.classList.remove('speed1');
             body.classList.add('speed2');
             clearInterval(speed);
