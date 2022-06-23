@@ -1,19 +1,17 @@
-function executar(){
-    let div = document.getElementById('memes');
+var body = document.getElementById("body");
+//função parra pular
+function pular(){
     let butao = document.getElementById('pulo');
-    div.style.transition = '0.8s';
         butao.onclick = function() {arroz()};
-        div.style.top ='420px'
+        body.classList.add('pulo');
         setTimeout(() => {
-          div.style.top = '570px';
-          
-        }, 400);
-        
-        setTimeout(() => {
-            butao.onclick = function(){executar()};
-        }, 400);
+            body.classList.remove('pulo');
+            butao.onclick = function(){pular()};
+        }, 800);   
     
-}//556top 156left
+}
+
+//função para pegar informações de localização e o contador, tambem verifica se morreu
 function morreu(){
     let div = document.getElementById('memes');
     let div1 = document.getElementById('memes1');
@@ -25,7 +23,6 @@ function morreu(){
     setInterval(() => {
         var coordsl = Number(cano.offsetLeft);
         var coordst = Number(div.offsetTop);
-        console.log(coordsl +' and '+ coordst)
         
         if(coordsl <= 173  && coordst > 556 && coordsl >26){
             
@@ -38,28 +35,44 @@ function morreu(){
         butao.onclick = function() {arroz()};
         }
         
-    }, 100);  
+    }, 100); 
+
+    setInterval(function muda() {
+        if(cont > 4){
+            body.classList.add('speed');
+        }
+        if(cont > 19){
+            body.classList.remove('speed');
+            body.classList.add('speed1');
+        }
+        if(cont > 49){
+            body.classList.remove('speed1');
+            body.classList.add('speed2');
+        }    
+    }, 10);
+    
     setInterval(() => {
         if(morreu == false){
             cont ++  
-            contador.innerHTML = 'Pontuação: ' + cont;
+            contador.innerHTML = cont;
         }
-    }, 2000); 
+    }, 2000);
+   
 }
-function restart(){
+
+//restarta o jogo
+function restart(){ 
     document.location.reload(true);
 }
 
-var body = document.getElementById("body");
-
-// Execute a function when the user presses a key on the keyboard
+// função para pegar qual tecla o usuario clicou
 body.addEventListener("keypress", function(event) {
-  // If the user presses the "Enter" key on the keyboard
+  // If the user presses the "Space" key on the keyboard
   if (event.key === " ") {
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
     document.getElementById("pulo").click();
-    console.log('pulo')
+    //console.log('pulo')
   }
 });

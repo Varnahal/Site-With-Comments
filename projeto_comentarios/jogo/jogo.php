@@ -22,6 +22,7 @@ ob_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../imagens/V.png" type="image/x-icon">
     <title>ex001</title>
     <style>
         body{
@@ -36,6 +37,23 @@ ob_start();
             top: 570px;
             color: white;
             font-size: 30px;
+        }
+        .pulo #memes{
+            animation: pulo 0.8s ease-in-out;
+        }
+        @keyframes pulo {
+            0%{
+                top: 570px;
+            }
+            50%{
+                top: 450px;
+            }
+            60%{
+                top: 450px;
+            }
+            100%{
+                top: 570px;
+            }
         }
         div#memes1{
             position: absolute;
@@ -59,18 +77,72 @@ ob_start();
             color: white;
             font-size: 25px;
             animation: cano 2s infinite linear;
+            right: -100px;
             bottom: 0px;
         }
+        .speed #cano{
+            animation: cano1 1.5s infinite linear;
+        }
+        .speed1 #cano{
+            animation: cano2 1.2s infinite linear;
+        }
+        .speed2 #cano{
+            animation: cano3 1s infinite linear;
+        }
+        #nuvem{
+            animation: cano 5s infinite linear;
+            position: absolute;
+            color: white;
+            top: 200px;
+            font-size: 55px;
+        }
+        #nuvem1{
+            animation: cano 5.5s infinite linear;
+            position: absolute;
+            color: white;
+            top: 250px;
+            font-size: 55px;
+        }
         @keyframes cano {
-            from{
+            0%{
                 right:-100px;
             }
-            to{
+            100%{
                 right:100%;
             }
-            
+        }
+        @keyframes cano1 {
+            0%{
+                right:-100px;
+            }
+            100%{
+                right:100%;
+            }
+        }
+        @keyframes cano2 {
+            0%{
+                right:-100px;
+            }
+            100%{
+                right:100%;
+            } 
+        }
+        @keyframes cano3 {
+            0%{
+                right:-100px;
+            }
+            100%{
+                right:100%;
+            } 
         }
         #cont{
+            position:absolute;
+            font-size: 30px;
+            color: white;
+            left: 160px;
+            margin: 10px;
+        }
+        #cont1{
             font-size: 30px;
             color: white;
             margin: 10px;
@@ -84,6 +156,7 @@ ob_start();
             display:none;
         }
         
+        
     </style>
 </head>
 <body onload="morreu()" id="body">
@@ -93,14 +166,17 @@ ob_start();
     </div>
     
     <script src="ex001.js"></script>
-    <div class="caixa" onclick="executar()">
-        <div id="cont">Pontuação: 0</div>
+    <div class="caixa" onclick="pular()">
+        <div id="cont1">Pontuação:</div>
+        <div id="cont">0</div>
         <div id="msg">Clique na tela ou no botão pular para pular</div>
         <div id="memes">mario</div>
         <div id="memes1">morreu</div>
         <div id="cano">cano</div> 
+        <div id="nuvem">nuvem</div> 
+        <div id="nuvem1">nuvem</div> 
     </div>
-    <button id='pulo' onclick="executar()"><h1>Pular</h1></button>
+    <button id='pulo' onclick="pular()"><h1>Pular</h1></button>
     
 </body>
 </html>
