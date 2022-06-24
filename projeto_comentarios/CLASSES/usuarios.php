@@ -24,7 +24,7 @@ class usuario{
         $cmd->execute();
         if($cmd->rowCount()==0)
         {
-        $cmd = $this->pdo->prepare("INSERT INTO usuarios values(default,:n,:e,:s,'perfil.png',:d)");
+        $cmd = $this->pdo->prepare("INSERT INTO usuarios values(default,:n,:e,:s,'perfil.png',:d,default)");
         $cmd->bindValue(":n",$n);
         $cmd->bindValue(":e",$e);
         $cmd->bindValue(":s",$j);
@@ -168,6 +168,32 @@ class usuario{
         }else{
             return false;
         }
+    }
+    public function mandarleaderbd($id,$data){
+        $cmd = $this->pdo->prepare("UPDATE usuarios
+        SET pontos = :p
+        WHERE id = :id");
+        $cmd->bindValue(":p",$data);
+        $cmd->bindValue(":id",$id);
+        $cmd->execute();
+        if($cmd->rowCount()>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function buscarpontos($id){
+        $cmd = $this->pdo->prepare('SELECT pontos FROM usuarios WHERE id = :id');
+        $cmd->bindValue(':id',$id);
+        $cmd->execute();
+        $dados = $cmd->fetch();
+        return $dados;
+    }
+    public function leaderboard(){
+        $cmd = $this->pdo->prepare("SELECT nome,pontos FROM usuarios ORDER BY pontos DESC");
+        $cmd->execute();
+        $dados = $cmd->fetchAll(PDO::FETCH_ASSOC);
+        return $dados;
     }
 }
 ?>

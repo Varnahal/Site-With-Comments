@@ -13,8 +13,9 @@ ob_start();
             require_once '../CLASSES/usuarios.php';
             $p = new usuario('varnahal','localhost','root','');
             $dados = $p->buscardados($_SESSION['id_master']);
-        }
-        
+        }else{
+            header('Location:../index.php');
+        } 
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,8 +156,19 @@ ob_start();
         .disclaimer{
             display:none;
         }
-        
-        
+        #inpnum{
+            display: none;
+        }
+        #valorbd{
+            display: none;
+        }
+        #numsub{
+          display: none;
+          font-size: 30px;
+          background-color: #1937b5;
+          border-radius: 10px;
+          cursor: pointer;
+        }
     </style>
 </head>
 <body onload="morreu()" id="body">
@@ -164,19 +176,33 @@ ob_start();
         <button id='restart' onclick="restart()"><h1>Restart</h1></button>
         <button id="restart"><h1><?php echo '<a href="../Perfil-individual.php?id=',$dados["id"],'">Voltar</a>';?></h1></button>
     </div>
-    
+    <?php 
+        $data = filter_input_array(INPUT_POST);
+        if(isset($data)&&!empty($data)){
+            $p->mandarleaderbd($dados['id'],$data['inpnum']);
+        }
+        $pontos = $p->buscarpontos($dados['id']);  
+        
+    ?>
     <script src="ex001.js"></script>
     <div class="caixa" onclick="pular()">
         <div id="cont1">Pontuação:</div>
         <div id="cont">0</div>
+        <form action="" method="post">
+            <input id="inpnum" name="inpnum" type="number">
+            <input id='numsub' value="Enviar Pontuação" type="submit" name="leaderboard">
+        </form>
+        
         <div id="msg">Clique na tela ou no botão pular para pular</div>
         <div id="memes">mario</div>
         <div id="memes1">morreu</div>
+        <div id="valorbd"><?php echo $pontos['pontos']?></div>
         <div id="cano">cano</div> 
         <div id="nuvem">nuvem</div> 
         <div id="nuvem1">nuvem</div> 
     </div>
     <button id='pulo' onclick="pular()"><h1>Pular</h1></button>
+    <a href="../leaderboard.php"><button id='pulo'><h1>leaderboard </h1></button></a>
     
 </body>
 </html>

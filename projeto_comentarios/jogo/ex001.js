@@ -1,4 +1,5 @@
 var body = document.getElementById("body");
+var cont = 0
 //função parra pular
 function pular(){
     let butao = document.getElementById('pulo');
@@ -16,9 +17,9 @@ function morreu(){
     let div = document.getElementById('memes');
     let div1 = document.getElementById('memes1');
     let cano = document.getElementById('cano');
-    let contador = document.getElementById('cont')
+    var contador = document.getElementById('cont');
     var morreu = false;
-    var cont = 0
+    
     div1.style.display = 'none'
     // verifica se o 'mario' morreu
     setInterval(() => {
@@ -31,7 +32,13 @@ function morreu(){
             morreu = true
             cano.style.animation = 'nada'
             cano.style.display ='none'
+            var valorbd = document.getElementById('valorbd').innerHTML;
+            if(Number(valorbd) < cont){
+                contador.innerHTML = contador.innerHTML+ '(Best)';
+                leaderbd()
+            }
             butao.onclick = function() {arroz()};
+            
         }
         
     }, 100); 
@@ -106,3 +113,10 @@ body.addEventListener("keypress", function(event) {
     //console.log('pulo')
   }
 });
+function leaderbd(){
+    var inp = document.getElementById('inpnum');
+    var numsub = document.getElementById('numsub');
+    numsub.style.display = 'flex';
+    console.log('estou aqui')
+    inp.value = cont;
+}

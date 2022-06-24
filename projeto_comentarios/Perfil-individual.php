@@ -121,6 +121,7 @@ ob_start();
             <a class='sair' href='sair.php'>Sair</a>
             <a class='editar' href='Perfil.php'>Editar Perfil</a>
         </div>";
+        echo"<div class='jogo'><a href='jogo/jogo.php'>Jogar</a></div>";
                     }
                 }elseif(isset($_SESSION['id_user'])){
                     if($id == $_SESSION['id_user']){
@@ -128,11 +129,11 @@ ob_start();
             <a class='sair' href='sair.php'>Sair</a>
             <a class='editar' href='Perfil.php'>Editar Perfil</a>
         </div>";
+        echo"<div class='jogo'><a href='jogo/jogo.php'>Jogar</a></div>";
                 }
                 
                 }
                 ?>
-        <div class="jogo"><a href="jogo/jogo.php">Jogar</a></div>
     </section>
     
     <footer>  
