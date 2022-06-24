@@ -2,6 +2,8 @@
 
 class usuario{
     private $pdo;
+
+    //conexão com banco de dados
     public function __construct($dbname,$host,$user,$pass) 
     {
         $opcoes = array(
@@ -16,12 +18,15 @@ class usuario{
             echo"Erro por favor tente novamente. Erro:$e";
         }
     }
+    //cadastrar informações do usuario no banco de dados
     public function cadastrar($n,$e,$s,$desc=null)
     {   
+        //verificar se email já esta cadastrado
         $j = password_hash($s,PASSWORD_DEFAULT);
         $cmd = $this->pdo->prepare("SELECT id FROM usuarios WHERE email = :e");
         $cmd->bindValue(":e",$e);
         $cmd->execute();
+        //caso nn esteja cadastrado cadastrar
         if($cmd->rowCount()==0)
         {
         $cmd = $this->pdo->prepare("INSERT INTO usuarios values(default,:n,:e,:s,'perfil.png',:d,default)");
@@ -36,13 +41,17 @@ class usuario{
             return false;
         }
     }
+
+    //verificar se usuario esta no banco de dados e efetuar o login
     public function entrar($e,$s)
     {   
+        //verificar email
         $cmd = $this->pdo->prepare("SELECT * FROM usuarios WHERE email=:e");
         $cmd->bindValue(":e",$e);
         $cmd->execute();
         $j = $cmd->fetch();
         if($cmd->rowCount()>0){
+            //verificar se a senha está correta
             if(password_verify($s,$j['senha']))
             {
                 $cmd = $this->pdo->prepare("SELECT * FROM usuarios WHERE senha=:s AND email=:e");
@@ -52,13 +61,12 @@ class usuario{
                 if($cmd->rowCount()>0)
                 {
                     $dados = $cmd->fetch();
-                    //session_start();
                     if($dados['id'] == 1){
-                        //ADM
+                        //atribui o id para o id na session quando se é ADM
                         $_SESSION['id_master'] = 1;
                     }else
                     {
-                        //PLEBE
+                        //atribui o id para o id na session quando se é PLEBE
                         $_SESSION['id_user'] = $dados['id'];
                     }
                     return true;
@@ -80,6 +88,8 @@ class usuario{
 
         
     }
+
+    //busca todos os dados do usuario com base no id
     public function buscardados($id)
     {
        $cmd = $this->pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
@@ -88,6 +98,8 @@ class usuario{
        $dados = $cmd->fetch(PDO::FETCH_ASSOC);
        return $dados;
     }
+
+    //buscar usuarios e seus comentarios para mostrar em dados
     public function buscarusuarios()
     {
         $cmd = $this->pdo->prepare("SELECT a.id,a.nome,a.email,COUNT(b.id) as 'quantidade' FROM usuarios a LEFT JOIN comentarios b ON a.id = b.fk_id_usuraio GROUP BY a.id");
@@ -96,7 +108,8 @@ class usuario{
         return $dados;
     }
     
-        public function MudarInfoNome($id,$nome)
+    //mudar nome no banco de dados com base no id
+    public function MudarInfoNome($id,$nome)
     {
         $cmd = $this->pdo->prepare("UPDATE usuarios
         SET nome = :n
@@ -118,6 +131,8 @@ class usuario{
         }   
         }
     }
+
+    //mudar senha no banco de dados com base no id
     public function MudarInfoSenha($id,$senha)
     {   
         $j = password_hash($senha,PASSWORD_DEFAULT);
@@ -133,6 +148,8 @@ class usuario{
             return false;
         }
     }
+
+    //mudar descrição no banco de dados com base no id
     public function MudarInfoDesc($id,$desc)
     {
         $cmd = $this->pdo->prepare("UPDATE usuarios
@@ -155,6 +172,8 @@ class usuario{
         }   
         }
     }
+
+    //mudar foto no banco de dados com base no id
     public function MudarInfoFoto($id,$foto)
     {   
         $cmd = $this->pdo->prepare("UPDATE usuarios
@@ -169,7 +188,10 @@ class usuario{
             return false;
         }
     }
-    public function mandarleaderbd($id,$data){
+
+    //enviar para o banco de dados os pontos do usuario
+    public function mandarleaderbd($id,$data)
+    {
         $cmd = $this->pdo->prepare("UPDATE usuarios
         SET pontos = :p
         WHERE id = :id");
@@ -182,13 +204,18 @@ class usuario{
             return false;
         }
     }
-    public function buscarpontos($id){
+
+    //busca os pontos de um usuario em especifico
+    public function buscarpontos($id)
+    {
         $cmd = $this->pdo->prepare('SELECT pontos FROM usuarios WHERE id = :id');
         $cmd->bindValue(':id',$id);
         $cmd->execute();
         $dados = $cmd->fetch();
         return $dados;
     }
+
+    //mostrar quantos pontos cada usuario tem
     public function leaderboard(){
         $cmd = $this->pdo->prepare("SELECT nome,pontos FROM usuarios ORDER BY pontos DESC");
         $cmd->execute();

@@ -113,6 +113,8 @@ body.addEventListener("keypress", function(event) {
     //console.log('pulo')
   }
 });
+
+//atualiza os pontos do jogador
 function leaderbd(){
     var inp = document.getElementById('inpnum');
     var numsub = document.getElementById('numsub');
